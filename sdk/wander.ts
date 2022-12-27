@@ -1,17 +1,18 @@
-namespace Wander {
+export namespace Wander {
   export type ID = string;
+  export type TimeStamp = number;
 
   export interface Node {
     id: ID;
     meta: Record<string, any>;
     data: Entity;
     owner: User;
-    timestamp: EpochTimeStamp;
+    timestamp: TimeStamp;
   }
 
   export enum EntityType {
-    "Lyf",
-    "WebPage",
+    Lyf = "wander:Lyf",
+    WebPage = "wander:WebPage",
   }
 
   export interface Entity {
