@@ -16,7 +16,7 @@ export namespace Wander {
   }
 
   export interface Entity {
-    id: ID;
+    node: Node;
     type: EntityType;
     attributes: Record<string, any>;
   }
