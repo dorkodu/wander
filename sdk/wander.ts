@@ -23,14 +23,4 @@ namespace Wander {
   export interface User {
     id: ID;
   }
-
-  // dummy examples
-  const lettersRegexp = /^[A-Za-z]+$/;
-  const numberRegexp = /^[0-9]+$/;
-
-  export class ExampleClass {
-    isAcceptable(s: string) {
-      return lettersRegexp.test(s);
-    }
-  }
 }
