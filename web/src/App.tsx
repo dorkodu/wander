@@ -4,7 +4,7 @@ import { useAppStore } from "./stores/appStore"
 
 function App() {
   const loading = useAppStore(state => state.getLoading());
-
+  
   return (
     <>
       <Suspense >

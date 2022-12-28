@@ -19,7 +19,7 @@ interface Action {
 
 const initialState: State = {
   loading: {
-    auth: true,
+    auth: false,
     locale: true,
   }
 }
