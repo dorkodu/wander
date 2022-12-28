@@ -26,12 +26,12 @@ function Router() {
           <Route path="/welcome" element={<Welcome />} />
 
           {/* Routes that require authentication */}
-          <Route path="/home" element={<Home />}>
-            <Route path="/home/feed" element={<Feed />} />
-            <Route path="/home/explore" element={<Explore />} />
-            <Route path="/home/inbox" element={<Inbox />} />
-            <Route path="/home/garden" element={<Garden />} />
-            <Route path="/home/profile" element={<Profile />} />
+          <Route path="/" element={<Home />}>
+            <Route path="/feed" element={<Feed />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/inbox" element={<Inbox />} />
+            <Route path="/garden" element={<Garden />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
 
           {/* Error routes & catch all */}
