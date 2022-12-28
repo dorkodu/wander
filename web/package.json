@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.5",
     "@mantine/core": "^5.9.5",
     "@mui/material": "^5.11.0",
+    "@tabler/icons": "^1.118.0",
     "dayjs": "^1.11.6",
     "emotion-modern-normalize": "^1.0.0",
     "i18next": "^22.0.5",

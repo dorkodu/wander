@@ -8,6 +8,7 @@ specifiers:
   '@emotion/styled': ^11.10.5
   '@mantine/core': ^5.9.5
   '@mui/material': ^5.11.0
+  '@tabler/icons': ^1.118.0
   '@types/react': ^18.0.22
   '@types/react-dom': ^18.0.7
   '@vitejs/plugin-react': ^2.2.0
@@ -35,6 +36,7 @@ dependencies:
   '@emotion/styled': 11.10.5_dqn3r7slk6ng2nisgsgpboaeoa
   '@mantine/core': 5.9.5_mt5i6ofbz6cg43nowayw6jznre
   '@mui/material': 5.11.0_gs4twfomdgooimayvnfrqgiwam
+  '@tabler/icons': 1.118.0_biqbaboplfbrettd7655fr4n2y
   dayjs: 1.11.6
   emotion-modern-normalize: 1.0.0_wm6ohc3abj5yburmg6pjdgzp24
   i18next: 22.0.5
@@ -2015,6 +2017,21 @@ packages:
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.8
     dev: true
+
+  /@tabler/icons/1.118.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-/DFANTIQBz+Moissilo47WPOp598Ht4gxvAtK0f/OC5eL8bjzxbzd4dx7d1uwf1oQ/PvaQ3Sh2UhXKP0I1D1wg==}
+    peerDependencies:
+      react: ^16.x || 17.x || 18.x
+      react-dom: ^16.x || 17.x || 18.x
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@types/estree/0.0.39:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
