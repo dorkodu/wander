@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@dorkodu/prism': ^0.1.0
   '@dorkodu/sage-client': ^0.1.4
   '@emotion/babel-plugin': ^11.10.5
   '@emotion/react': ^11.10.5
@@ -28,6 +29,7 @@ specifiers:
   zustand: ^4.1.4
 
 dependencies:
+  '@dorkodu/prism': 0.1.0
   '@dorkodu/sage-client': 0.1.4
   '@emotion/react': 11.10.5_c67ow4zu5d5d4accc4x3467flm
   '@emotion/styled': 11.10.5_dqn3r7slk6ng2nisgsgpboaeoa
@@ -1370,6 +1372,10 @@ packages:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+
+  /@dorkodu/prism/0.1.0:
+    resolution: {integrity: sha512-ex7RP/aqBYsjzEuvM1G0NMMshnZl057yD62BQMarJ40ucCK0ouwdTxKo4UDVujV9Cc/Gx8AInvkFo/XjwA2CzQ==}
+    dev: false
 
   /@dorkodu/sage-client/0.1.4:
     resolution: {integrity: sha512-YW2uHbePdHDtD5WzLbUhA2rKTadAcuW2AdtTlhyw2o5SAKqvvFjs5GTgwpdRWGDzYDzDkrcD/a734+vLYgqUZA==}
