@@ -1,0 +1,18 @@
+FROM node:16.17.1-alpine as base
+WORKDIR /wander
+
+RUN mkdir -p /wander/web
+RUN mkdir -p /wander/shared
+
+RUN npm install -g pnpm && pnpm config set store-dir /root/.local/share/pnpm/store/v3
+
+WORKDIR /wander/web
+
+COPY ./web/pnpm-lock.yaml /wander/web
+RUN pnpm fetch
+COPY ./web /wander/web
+COPY ./shared /wander/shared
+RUN pnpm install --offline
+
+#RUN pnpm test
+RUN pnpm build
