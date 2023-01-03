@@ -11,17 +11,18 @@ import {
   IconBrandYoutube,
   IconBrandInstagram,
 } from "@tabler/icons";
+import { FunctionComponent } from "react";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    marginTop: 60,
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
     backgroundColor:
       theme.colorScheme === "dark"
         ? theme.colors.dark[6]
         : theme.colors.gray[0],
-    borderTop: `1px solid ${
+    borderTop: `2px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
   },
@@ -114,14 +115,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface FooterLinksProps {
+export const Footer: FunctionComponent<{
   data: {
     title: string;
     links: { label: string; link: string }[];
   }[];
-}
-
-export function Footer({ data }: FooterLinksProps) {
+}> = ({ data }) => {
   const { classes } = useStyles();
 
   const groups = data.map((group) => {
@@ -176,4 +175,4 @@ export function Footer({ data }: FooterLinksProps) {
       </Container>
     </footer>
   );
-}
+};

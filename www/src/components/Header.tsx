@@ -29,6 +29,7 @@ import {
   IconCoin,
   IconChevronDown,
 } from "@tabler/icons";
+import { FunctionComponent } from "react";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -132,7 +133,7 @@ const mockdata = [
   },
 ];
 
-export function Header() {
+export const Header: FunctionComponent<{}> = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
@@ -291,4 +292,4 @@ export function Header() {
       </Drawer>
     </Box>
   );
-}
+};
