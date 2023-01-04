@@ -1,9 +1,10 @@
-import { MantineTheme } from "@mantine/core";
+import { MantineThemeOverride } from "@mantine/core";
 import { theme as PrismTheme } from "@dorkodu/prism";
 import ComponentLibrary from "./components";
 
-const theme: Partial<MantineTheme> = {
+const theme: MantineThemeOverride = {
   ...PrismTheme,
+  colorScheme: "light",
   components: ComponentLibrary.components,
 };
 

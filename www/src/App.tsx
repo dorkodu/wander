@@ -12,13 +12,14 @@ import { useAppStore } from "./stores/appStore";
 import theme from "./styles/theme";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { ColorSchemeToggle } from "./components/ColorSchemeToggle";
 
 function App() {
   const loading = useAppStore((state) => state.getLoading());
+  const colorScheme = useAppStore((state) => state.colorScheme);
+  const toggleColorScheme = useAppStore((state) => state.toggleColorScheme);
 
-  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+  console.log(colorScheme);
 
   return (
     <ColorSchemeProvider
@@ -117,3 +118,10 @@ function App() {
 }
 
 export default App;
+
+/**
+ *
+ *
+ *
+ *
+ */
