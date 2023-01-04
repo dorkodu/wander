@@ -48,7 +48,7 @@ export const useAppStore = create(
         state.loading.locale = true;
       });
 
-      await Promise.all([i18n.changeLanguage(lang), changeDateLanguage(lang)]);
+      await Promise.all([i18n.changeLanguage(lang)]);
       document.documentElement.lang = lang;
 
       set((state) => {
