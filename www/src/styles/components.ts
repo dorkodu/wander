@@ -1,8 +1,7 @@
-import { components } from "@dorkodu/prism";
+import { MantineTheme } from "@mantine/core";
 
-const theme = {
-  ...PrismTheme,
+const ComponentLibrary: Partial<MantineTheme> = {
   components: {},
 };
 
-export default theme;
+export default ComponentLibrary;
