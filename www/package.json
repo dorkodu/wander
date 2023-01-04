@@ -7,7 +7,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@dorkodu/prism": "^0.1.0",
+    "@dorkodu/prism": "^0.2.1",
     "@emotion/react": "^11.10.5",
     "@mantine/core": "^5.9.5",
     "@mantine/hooks": "^5.9.5",
