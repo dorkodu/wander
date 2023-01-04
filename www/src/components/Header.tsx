@@ -30,6 +30,7 @@ import {
   IconChevronDown,
 } from "@tabler/icons";
 import { FunctionComponent } from "react";
+import { ColorSchemeToggle } from "./ColorSchemeToggle";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -159,7 +160,14 @@ export const Header: FunctionComponent<{}> = () => {
 
   return (
     <Box pb={120}>
-      <MantineHeader height={60} px="md">
+      <MantineHeader
+        height={60}
+        px="lg"
+        sx={{
+          border: "none",
+          maxWidth: 1200,
+        }}
+      >
         <Group position="apart" sx={{ height: "100%" }}>
           {/* <MantineLogo size={30}  /> */}
           <Group
@@ -233,6 +241,7 @@ export const Header: FunctionComponent<{}> = () => {
           </Group>
 
           <Group className={classes.hiddenMobile}>
+            <ColorSchemeToggle />
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
