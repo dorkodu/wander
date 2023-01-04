@@ -1,6 +1,12 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { AppShell, Loader, MantineProvider } from "@mantine/core";
+import {
+  AppShell,
+  ColorScheme,
+  ColorSchemeProvider,
+  Loader,
+  MantineProvider,
+} from "@mantine/core";
 
 import { useAppStore } from "./stores/appStore";
 import theme from "./styles/theme";
@@ -10,8 +16,15 @@ import { Footer } from "./components/Footer";
 function App() {
   const loading = useAppStore((state) => state.getLoading());
 
+  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+
   return (
-    <>
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
       <MantineProvider theme={theme}>
         <AppShell
           padding="xs"
@@ -99,7 +112,7 @@ function App() {
           </Suspense>
         </AppShell>
       </MantineProvider>
-    </>
+    </ColorSchemeProvider>
   );
 }
 
