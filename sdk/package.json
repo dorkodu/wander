@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@dorkodu/sage-client": "^0.1.4",
+    "@dorkodu/sage-server": "^0.1.3"
+  }
 }

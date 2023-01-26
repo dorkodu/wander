@@ -1,0 +1,19 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@dorkodu/sage-client': ^0.1.4
+  '@dorkodu/sage-server': ^0.1.3
+
+dependencies:
+  '@dorkodu/sage-client': 0.1.4
+  '@dorkodu/sage-server': 0.1.3
+
+packages:
+
+  /@dorkodu/sage-client/0.1.4:
+    resolution: {integrity: sha512-YW2uHbePdHDtD5WzLbUhA2rKTadAcuW2AdtTlhyw2o5SAKqvvFjs5GTgwpdRWGDzYDzDkrcD/a734+vLYgqUZA==}
+    dev: false
+
+  /@dorkodu/sage-server/0.1.3:
+    resolution: {integrity: sha512-WmWwcGk9XsGVzWFhglEAHHOIdQJTB9B3rGeuWYLWYGNzgjZT8uWKThQhFmo7j3xG2orKOX+sPcNxEWUvFeky6Q==}
+    dev: false
