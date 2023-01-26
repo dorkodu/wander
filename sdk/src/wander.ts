@@ -13,6 +13,8 @@ export namespace Wander {
   export enum EntityType {
     Lyf = "wander:Lyf",
     WebPage = "wander:WebPage",
+    Person = "wander:Person",
+    User = "wander:User",
   }
 
   export interface Entity {
@@ -23,5 +25,13 @@ export namespace Wander {
 
   export interface User {
     id: ID;
+  }
+
+  export class Peer {
+    public url: string;
+
+    constructor(url: string) {}
+
+    get(type: EntityType, id: ID) {}
   }
 }
