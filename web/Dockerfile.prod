@@ -1,0 +1,19 @@
+FROM node:16.17.1-alpine as base
+WORKDIR /forum
+
+RUN mkdir -p /forum/web
+RUN mkdir -p /forum/api
+
+RUN npm install -g pnpm && pnpm config set --global store-dir /root/.local/share/pnpm/store/v3
+
+WORKDIR /forum/web
+
+COPY ./web/pnpm-lock.yaml /forum/web
+COPY ./api/pnpm-lock.yaml /forum/api
+RUN cd /forum/web && pnpm fetch && cd /forum/api && pnpm fetch
+COPY ./web /forum/web
+COPY ./api /forum/api
+RUN cd /forum && pnpm install -r --offline
+
+#RUN pnpm test
+RUN pnpm build
