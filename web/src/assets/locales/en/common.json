@@ -1,0 +1,60 @@
+{
+  "newer": "Newer",
+  "older": "Older",
+
+  "refresh": "Refresh",
+  "loadNewer": "Load Newer",
+  "loadOlder": "Load Older",
+
+  "mostVoted": "Most Voted",
+  "leastVoted": "Least Voted",
+
+
+  "userFeed": "User Feed",
+  "favouriteFeed": "Favourite Feed",
+  "guestFeed": "Guest Feed",
+
+
+  "login": "Log In",
+  "logout": "Log Out",
+  "notFound": "Not Found :(",
+
+
+  "followUser": "Follow",
+  "unfollowUser": "Unfollow",
+  "userFollowsYou": "Follows You",
+  "searchUser": "Search @Username or Name...",
+  "userFollowers_one": "{{count}} Follower",
+  "userFollowers_other": "{{count}} Followers",
+  "userFollowing": "{{count}} Following",
+
+
+  "createDiscussion": "Create",
+  "editDiscussion": "Edit Discussion",
+  "deleteDiscussion": "Delete Discussion",
+  "discussionTitle": "Enter Title",
+  "discussionReadme": "Enter Readme",
+  "discussionUpdateNever": "Never",
+
+
+  "createArgument": "Send",
+  "writeArgument": "Write Your Argument",
+  "deleteArgument": "Delete Argument",
+  "showArguments": "Show Arguments",
+
+  
+  "createComment": "Send",
+  "writeComment": "Write Your Comment",
+  "deleteComment": "Delete Comement",
+  "showComments": "Show Comments",
+
+  
+  "heyThere": "Hey There!",
+  "pleaseLogin": "Want to enjoy the app to it's fullest? <br /> Please log in.",
+
+  
+  "error": {
+    "text": "Error",
+    "default": "An error occured."
+  }
+}
