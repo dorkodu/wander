@@ -1,0 +1,59 @@
+{
+  "newer": "Daha Yeni",
+  "older": "Daha Eski",
+
+  "refresh": "Yenile",
+  "loadNewer": "Yenileri Yükle",
+  "loadOlder": "Eskileri Yükle",
+
+  "mostVoted": "En Çok Oy",
+  "leastVoted": "En Az Oy",
+
+  
+  "userFeed": "Kullanıcı Akışı",
+  "favouriteFeed": "Favori Akışı",
+  "guestFeed": "Misafir Akışı",
+
+
+  "login": "Giriş Yap",
+  "logout": "Çıkış Yap",
+  "notFound": "Bulunamadı :(",
+
+  
+  "followUser": "Takip Et",
+  "unfollowUser": "Takipten Çık",
+  "userFollowsYou": "Seni Takip Ediyor",
+  "searchUser": "@Kullanıcıadı veya Ad Ara",
+  "userFollowers": "{{count}} Takipçi",
+  "userFollowing": "{{count}} Takip Edilen",
+
+
+  "createDiscussion": "Oluştur",
+  "editDiscussion": "Tartışmayı Düzenle",
+  "deleteDiscussion": "Tartışmayı Sil",
+  "discussionTitle": "Başlık Girin",
+  "discussionReadme": "Beni Oku Girin",
+  "discussionUpdateNever": "Hiç",
+
+
+  "createArgument": "Yolla",
+  "writeArgument": "Argümanını Yaz",
+  "deleteArgument": "Argümanı Sil",
+  "showArguments": "Argümanları Göster",
+
+
+  "createComment": "Yolla",
+  "writeComment": "Yorumunu Yaz...",
+  "deleteComment": "Yorumu Sil",
+  "showComments": "Yorumları Göster",
+
+
+  "heyThere": "Hey Merhaba!",
+  "pleaseLogin": "Uygulamanın keyfini sonuna kadar çıkarmak ister misin? <br /> Lütfen giriş yap.",
+
+  
+  "error": {
+    "text": "Hata",
+    "default": "Bir hata oluştu."
+  }
+}
