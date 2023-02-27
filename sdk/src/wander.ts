@@ -30,7 +30,9 @@ export namespace Wander {
   export class Peer {
     public url: string;
 
-    constructor(url: string) {}
+    constructor(url: string) {
+      this.url = url;
+    }
 
     get(type: EntityType, id: ID) {}
   }
