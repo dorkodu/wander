@@ -1,0 +1,178 @@
+{
+  "success": {
+    "text": "Success",
+    "emailVerified": "Email is verified. You can close this tab and continue to create your account.",
+    "emailReverted": "Email is reverted.",
+    "emailChanged": "Email is changed.",
+    "passwordChanged": "Your password is changed. All your sessions and accesses are terminated. Please log in."
+  },
+
+  "error": {
+    "text": "Error",
+    "default": "An error occured.",
+    "usernameUsed": "Username is already in use.",
+    "emailUsed": "Email is already in use.",
+    "username&emailUsed": "Username and email are already in use.",
+    "accessServiceNotFound": "Service is not specified."
+  },
+
+  "info": {
+    "text": "Info",
+    "confirmSignup": "Mail is sent. Please check inbox or spam folder to finish creating your account. You can close this tab.",
+    "newLocation": "A new location is detected. Please check inbox or spam folder to verify your location.",
+    "changeEmail": "Mail is sent. Please check inbox or spam folder to change your email.",
+    "changePassword": "Mail is sent. Please check inbox or spam folder to change your password."
+  },
+
+  "route": {
+    "welcome": {
+      "title": "Your Digital Life, One Account.",
+  
+      "description": "Connect with ID, and get the most out of all the Dorkodu apps you use.",
+      
+      "list": {
+        "item1": "Get a personalized experience.",
+        "item2": "Be verified everywhere.",
+        "item3": "Your life's information in one place.",
+        "item4": "All apps are always connected."
+      }
+    },
+
+    "login": {
+      "title": "Log In",
+      "description": "Welcome home. You were missed."
+    },
+
+    "signup": {
+      "title": "Create Your Account",
+  
+      "description": "In a minute, say hello to your new digital life.",
+    
+      "notice": "By creating an account, you will agree to Dorkodu's <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>."
+    },
+
+    "changeEmail": {
+      "title": "Change Email",
+      "description": "Want to change your email? No worries."
+    },
+
+    "confirmEmailChange": {
+      "title": "Confirm Email Change",
+      "description": "Want to change your email? No worries."
+    },
+
+    "revertEmailChange": {
+      "title": "Revert Email",
+      "description": "Want to change your email? No worries."
+    },
+
+    "changePassword": {
+      "title": "Change Password",
+      "description": "Want to change your password? No worries."
+    },
+
+    "confirmPasswordChange": {
+      "title": "Confirm Password Change",
+      "description": "Want to change your password? No worries."
+    },
+
+    "access": {
+      "title": "Access",
+      "description": "One account, all Dorkodu apps.",
+
+      "serviceRequirements": "wants to use your: name, username, bio, email and join date."
+    },
+
+    "404": {
+      "title": "404",
+      "description": "Couldn't find the thing you are looking for."
+    }
+  },
+
+  "footer": {
+    "about": "About",
+    "privacy": "Privacy",
+    "garden": "Garden",
+    "work": "Work"
+  },
+
+  "requirements": {
+    "nameLength": "Use 1-64 characters.",
+
+    "usernameLength": "Use 1-16 characters.",
+    "usernameChars": "Use letters (a-z or A-Z), digits (0-9), dot (.), and underscore (_).",
+    "usernameAvoid": "Avoid consecutive and at start/end dots/underscores.",
+
+    "bioLength": "Maximum 500 characters.",
+
+    "emailLength": "Maximum 320 characters.",
+    "emailEmpty": "Can not be empty.",
+
+    "passwordLength": "Minimum 8 characters."
+  },
+
+  "order": "Order",
+  "newer": "Newer",
+  "older": "Older",
+
+  "refresh": "Refresh",
+  "loadNewer": "Load Newer",
+  "loadOlder": "Load Older",
+
+  "show": "Show",
+  "sessions": "Sessions",
+  "accesses": "Accesses",
+
+  "currentSession": "Current Session",
+  
+  "name": "Name",
+  "nameDescription": "Use 1-64 chars.",
+  "enterName": "Enter Name",
+
+  "username": "Username",
+  "enterUsername": "Enter Username",
+  "usernameDescription": "Use 1-16 chars from letters (a-z or A-Z), digits (0-9), dot (.), and underscore (_), avoiding consecutive and at start/end dots/underscores.",
+
+  "usernameOrEmail": "Username or Email",
+  "enterUsernameOrEmail": "Enter Username or Email",
+
+  "bio": "Bio",
+  "bioDescription": "Maximum of 500 characters.",
+  "enterBio": "Enter Bio",
+
+  "email": "Email",
+  "enterEmail": "Enter Email",
+  "newEmail": "New Email",
+  "enterNewEmail": "Enter New Email",
+
+  "password": "Password",
+  "enterPassword": "Enter Password",
+  "newPassword": "New Password",
+  "enterNewPassword": "Enter New Password",
+
+  "continueToDashboard": "Continue to Dashboard",
+  "createAccount": "Create Account",
+  "alreadyHaveAnAccount": "Already have an account?",
+  "login": "Log In",
+  "logout": "Log Out",
+  "forgotYourPassword": "Forgot your password?",
+  "dontHaveAnAccount": "Don't have an account?",
+  "goBack": "Go Back",
+  "continue_": "Continue",
+  "finish": "Finish",
+  "changePassword": "Change Password",
+  "changeEmail": "Change Email",
+  "editProfile": "Edit Profile",
+  "reject": "Reject",
+  "accept": "Accept",
+  "confirm": "Confirm",
+  "terminateSession": "Terminate Session",
+  "revokeAccess": "Revoke Access",
+  "updating": "Updating the app!",
+
+  "routes": {
+    "dashboard": "Dashboard",
+    "sessions": "Sessions",
+    "accesses": "Accesses"
+  }
+}
