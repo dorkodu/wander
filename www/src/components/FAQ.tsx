@@ -1,44 +1,54 @@
-import { Container, Title, Accordion, createStyles } from "@mantine/core";
+import { FAQ, faqs } from "@/data/faq";
 
-const useStyles = createStyles((theme) => ({
-  wrapper: {
-    paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
-    minHeight: 650,
-  },
+import { Container, Title, Accordion, createStyles, rem, ThemeIcon, useMantineTheme, Text } from "@mantine/core";
+import { IconChevronDown } from "@tabler/icons-react";
 
-  title: {
-    marginBottom: theme.spacing.xl * 1.5,
-  },
-
-  item: {
-    borderRadius: theme.radius.md,
-    marginBottom: theme.spacing.lg,
-
-    border: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
-  },
-}));
-
-const placeholder =
-  "It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.It was born from sludge on the ocean floor. In a sterile environment, the germs within its body can’t multiply, and it dies.It has no eyeballs, so it can’t see. It checks its surroundings via the ultrasonic waves it emits from its mouth.";
-
-export function Faq() {
-  const { classes: style } = useStyles();
+export function FAQs() {
+  const theme = useMantineTheme();
 
   return (
-    <Container size="sm" className={style.wrapper}>
-      <Title align="center" className={style.title}>
-        Frequently Asked Questions
+    <Container size="sm">
+      <Title align="center" sx={{ marginBottom: 20 }} order={2}>
+        FAQs
       </Title>
-
-      <Accordion variant="separated">
-        <Accordion.Item className={style.item} value="reset-password">
-          <Accordion.Control>How can I reset my password?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-      </Accordion>
+      <FAQsAccordion faqs={faqs} />
     </Container>
+  );
+}
+
+export function FAQsAccordion({ faqs }: { faqs: FAQ[] }) {
+  const theme = useMantineTheme();
+  return (
+    <Accordion
+      variant="separated"
+      chevronSize={32}
+      chevron={<IconChevronDown size={24} color={theme.colors.gray[6]} />}
+      multiple
+      styles={{
+        item: {
+          borderRadius: theme.radius.md,
+          marginBottom: theme.spacing.lg,
+          border: `${rem(1)} solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[3]}`,
+          boxShadow: `2px 2px 8px ${theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]}`,
+        },
+        itemTitle: {},
+        label: {
+          fontWeight: 500,
+          paddingLeft: 16,
+          borderRadius: 8,
+        },
+      }}
+    >
+      {faqs.map((faq, index) => (
+        <Accordion.Item value={faq.q} key={index}>
+          <Accordion.Control>
+            <Text>{faq.q}</Text>
+          </Accordion.Control>
+          <Accordion.Panel>
+            <Text>{faq.a}</Text>
+          </Accordion.Panel>
+        </Accordion.Item>
+      ))}
+    </Accordion>
   );
 }
