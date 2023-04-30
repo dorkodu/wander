@@ -1,3 +1,5 @@
+import { Attribute } from "./schema";
+
 export namespace Wander {
   export type ID = string;
 
@@ -26,6 +28,16 @@ export namespace Wander {
 
   export type TimeStamp = number;
 
+  export interface Attribute {
+    type: string;
+    data: string;
+  }
+
+  export interface Entity {
+    type: EntityType;
+    attributes: Record<string, Attribute>;
+  }
+
   export interface Node {
     id: ID;
     meta: Record<string, any>;
@@ -39,12 +51,6 @@ export namespace Wander {
     WebPage = "wander:WebPage",
     Person = "wander:Person",
     User = "wander:User",
-  }
-
-  export interface Entity {
-    node: Node;
-    type: EntityType;
-    attributes: Record<string, any>;
   }
 
   export interface User {
