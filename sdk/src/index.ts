@@ -1,2 +1,1 @@
-export * from "./wander";
-export * from "./schema";
+export * from "./Wander.js";
