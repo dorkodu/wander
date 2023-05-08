@@ -28,6 +28,7 @@
 
     "paths": {
       "@/*": ["./src/*"],
+      "@wander/sdk": ["../../../sdk/src"]
     }
   },
   "include": ["src"],
