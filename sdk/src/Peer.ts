@@ -1,8 +1,14 @@
-import { AuthCredientals, Session } from "./Identity";
+import { AuthCredientals, ID, Session } from "./Identity";
 
 export type Connection = {
-  seed;
+  type: ConnectionType;
 };
+
+export enum ConnectionType {
+  SEED = "SEED",
+  PEER = "PEER",
+  POD = "POD",
+}
 
 /**
  * TODO: implement client-server logic
@@ -12,24 +18,31 @@ export type Connection = {
  */
 export class Peer {
   private connection: Connection;
+  private authCredientials: AuthCredientals | null = null;
+  private headers: Record<string, string> = {};
+  private session: Session | null = null;
 
   constructor(connection: Connection) {
     this.connection = connection;
   }
 
-  createSession({ identifier, password }: AuthCredientals) {
+  createSession({ identifier, password }: AuthCredientals): Session {
+    // try to create a session
+    // save credientials locally for future trial
     return {} satisfies Session;
   }
 
-  setHeader(header: string, value: string) {}
+  setRequestHeader(header: string, value: string) {}
 
-  list() {} // general purpose
+  list({ repo, type }: { repo: string; type: string }) {} // general purpose listing
 
-  whoAmI() {} // just for fun..
+  whoAmI() {
+    // returns the current user's session
+  } // just for fun..
 
   create(identifier: {}, object: {}) {}
 
-  read() {}
+  read({ repo, type, tid }: { repo: string; type: string; tid: ID }) {}
 
   send() {}
 
