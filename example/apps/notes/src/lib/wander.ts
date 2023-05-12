@@ -1,29 +1,29 @@
 import * as Wander from "@wander/sdk";
 
-// create an API instance with my PDS
-const api = Wander.Connect({ node: "id.dorkodu.com" });
+// create an API instance with my pod
+const pod = Wander.connectToPod({ seed: "id.dorkodu.com" });
 
 // sign in using my identifier and password
-const response = await api.createSession({
+const response = await pod.createSession({
   identifier: "doruk.dorkodu.com",
   password: "wishyouwerehere",
 });
 
 // configure future calls to include the token in the Authorization header
-api.setHeader("Authorization", `Bearer ${response.data.accessToken}`);
+pod.setRequestHeader("Authorization", `Bearer ${response.data.accessToken}`);
 
-await api.Pod.list({
+await pod.list({
   repo: "alice.com",
-  type: "app.bsky.post",
+  type: "wander:",
 });
 
-await api.Pod.get({
-  repo: "alice.com",
-  type: "app.bsky.post",
-  id: "1",
+await pod.get({
+  app: "forum",
+  type: "Discussion",
+  id: 1,
 });
 
-await api.Pod.create(
+await pod.create(
   {
     repo: "alice.com",
     type: "app.bsky.post",
@@ -34,7 +34,7 @@ await api.Pod.create(
   }
 );
 
-await api.Pod.send(
+await pod.update(
   {
     repo: "alice.com",
     type: "app.bsky.post",
@@ -45,7 +45,7 @@ await api.Pod.send(
   }
 );
 
-await api.com.atproto.repo.deleteRecord({
+await pod.delete({
   repo: "alice.com",
   type: "app.bsky.post",
   tid: "1",
