@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    
+    "outDir": "./dist",
+    "removeComments": true,
+    "skipLibCheck": true,
+
+    "paths": {
+      //"@core/*": ["../core/src/*"],
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
