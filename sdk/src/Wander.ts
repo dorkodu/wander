@@ -1,6 +1,36 @@
 import { SeedID } from "./Seed";
-import { Peer } from "./Peer";
+import { ConnectionType, Peer } from "./Peer";
 
-export function Connect({ seed }: { seed: SeedID }) {
+export * from "./Peer";
+export * from "./Identity";
+export * from "./NameService";
+export * from "./Source";
+export * from "./Pod";
+export * from "./Seed";
+export * from "./Data";
+
+/*
+export function connect({ seed }: { seed: SeedID }) {
   return new Peer({ seed });
 }
+
+export function connectToPod({ seed }: { seed: SeedID }) {
+  return new Peer({ seed });
+}
+
+export function connectToSeed({ seed }: { seed: SeedID }) {
+  return new Peer({ seed });
+}
+
+export function connectToSeed(request: NodeConnectionRequest) {
+  return new Peer({
+    request,
+  });
+}
+
+interface NodeConnectionRequest {
+  url: string;
+  headers: Record<string, string>;
+}
+
+*/
