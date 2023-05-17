@@ -3,7 +3,7 @@ import { ConnectionType, Peer } from "./Peer";
 
 export * from "./Peer";
 export * from "./Identity";
-export * from "./NameService";
+export * from "./name/Name";
 export * from "./Source";
 export * from "./Pod";
 export * from "./Seed";

@@ -1,14 +1,6 @@
-import { AuthCredientals, ID, Session } from "./Identity";
-
-export type Connection = {
-  type: ConnectionType;
-};
-
-export enum ConnectionType {
-  SEED = "SEED",
-  PEER = "PEER",
-  POD = "POD",
-}
+import { ID, User } from "./Identity";
+import { AuthCredientals, Session } from "./auth";
+import * as sage from "@dorkodu/sage-client";
 
 /**
  * TODO: implement client-server logic
@@ -17,34 +9,57 @@ export enum ConnectionType {
  * ? validation of types
  */
 export class Peer {
-  private connection: Connection;
-  private authCredientials: AuthCredientals | null = null;
   private headers: Record<string, string> = {};
   private session: Session | null = null;
 
-  constructor(connection: Connection) {
-    this.connection = connection;
-  }
+  constructor() {}
 
-  createSession({ identifier, password }: AuthCredientals): Session {
+  authenticate({ identifier, password }: AuthCredientals): boolean {
     // try to create a session
-    // save credientials locally for future trial
-    return {} satisfies Session;
+    const authResult = true;
+
+    // dummy data
+    const dummySession: Session = {
+      user: {
+        id: 1,
+        username: "doruk.dorkodu.com",
+        publicKey: "1234567890abcdefgi",
+      },
+    };
+
+    if (authResult) {
+      // save credientials locally for future use
+      this.session = dummySession;
+    }
+
+    return authResult;
   }
 
-  setRequestHeader(header: string, value: string) {}
-
-  list({ repo, type }: { repo: string; type: string }) {} // general purpose listing
+  setRequestHeader(header: string, value: string) {
+    this.headers[header] = value;
+  }
 
   whoAmI() {
+    return this.session.user ?? null;
     // returns the current user's session
-  } // just for fun..
+    // just for fun..
+  }
 
-  create(identifier: {}, object: {}) {}
+  connectToPod({ pod }: { pod: string }) {
+    // authenticate
+    // if succeeds
+    return PodConnection();
+  }
+}
 
-  read({ repo, type, tid }: { repo: string; type: string; tid: ID }) {}
+interface Connection {}
 
-  send() {}
-
-  delete() {}
+function PodConnection() {
+  return {
+    list({ repo, type }: { repo: string; type: string }) {}, // general purpose listing
+    create(identifier: { pod: string; type: string }, object: {}) {},
+    read({ id }: { type: string; id: ID }) {},
+    send() {},
+    delete() {},
+  };
 }

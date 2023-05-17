@@ -3,10 +3,12 @@ lockfileVersion: 5.4
 specifiers:
   '@dorkodu/sage-client': ^0.1.4
   '@dorkodu/sage-server': ^0.1.3
+  multiformats: ^11.0.2
 
 dependencies:
   '@dorkodu/sage-client': 0.1.4
   '@dorkodu/sage-server': 0.1.3
+  multiformats: 11.0.2
 
 packages:
 
@@ -16,4 +18,9 @@ packages:
 
   /@dorkodu/sage-server/0.1.3:
     resolution: {integrity: sha512-WmWwcGk9XsGVzWFhglEAHHOIdQJTB9B3rGeuWYLWYGNzgjZT8uWKThQhFmo7j3xG2orKOX+sPcNxEWUvFeky6Q==}
+    dev: false
+
+  /multiformats/11.0.2:
+    resolution: {integrity: sha512-b5mYMkOkARIuVZCpvijFj9a6m5wMVLC7cf/jIPd5D/ARDOfLC5+IFkbgDXQgcU2goIsTD/O9NY4DI/Mt4OGvlg==}
+    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
     dev: false

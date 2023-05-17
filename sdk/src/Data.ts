@@ -9,7 +9,7 @@ export type Operation = {
   // ... other operation-specific data
 };
 
-export type FreeFormData = DID | Record<string, Attribute>;
+export type FreeFormData = DID | Record<string, Attribute<any>>;
 
 export type TimeStamp = number;
 
