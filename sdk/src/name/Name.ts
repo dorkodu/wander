@@ -25,6 +25,3 @@ export const NSID = {
     return parts[1];
   },
 };
-
-let x = NSID.create({ namespace: "trekie.io", id: "Post" });
-x.id();
