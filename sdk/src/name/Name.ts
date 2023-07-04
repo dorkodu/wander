@@ -6,6 +6,8 @@ export interface NSIDDocument {
   toString(): string;
 }
 
+export type WanderID = string | number;
+
 export const NSID = {
   create({ namespace, id }: { namespace: string; id: string }): NSIDDocument {
     return {
