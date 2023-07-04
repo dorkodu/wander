@@ -8,6 +8,9 @@ dependencies:
   '@babel/core':
     specifier: ^7.21.3
     version: 7.21.4
+  '@dorkodu/prism':
+    specifier: latest
+    version: 0.3.1
   '@dorkodu/sage-client':
     specifier: ^0.1.4
     version: 0.1.4
@@ -15,7 +18,7 @@ dependencies:
     specifier: ^11.10.5
     version: 11.10.6(@types/react@18.2.0)(react@18.2.0)
   '@mantine/core':
-    specifier: ^6.0.5
+    specifier: ^6.0.9
     version: 6.0.9(@emotion/react@11.10.6)(@mantine/hooks@6.0.9)(@types/react@18.2.0)(react-dom@18.2.0)(react@18.2.0)
   '@mantine/form':
     specifier: ^6.0.5
@@ -1302,6 +1305,10 @@ packages:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+
+  /@dorkodu/prism@0.3.1:
+    resolution: {integrity: sha512-72I4ohJvF2SMxWkcsByTwrR40YnQvQuCQAfU+xfZT+lsC/NYYy3309hVS1DupvQkJMAquxNOVbaKi22AvYwUeQ==}
+    dev: false
 
   /@dorkodu/sage-client@0.1.4:
     resolution: {integrity: sha512-YW2uHbePdHDtD5WzLbUhA2rKTadAcuW2AdtTlhyw2o5SAKqvvFjs5GTgwpdRWGDzYDzDkrcD/a734+vLYgqUZA==}

@@ -9,8 +9,9 @@
   "dependencies": {
     "@babel/core": "^7.21.3",
     "@dorkodu/sage-client": "^0.1.4",
+    "@dorkodu/prism": "latest",
     "@emotion/react": "^11.10.5",
-    "@mantine/core": "^6.0.5",
+    "@mantine/core": "^6.0.9",
     "@mantine/form": "^6.0.5",
     "@mantine/hooks": "^6.0.5",
     "@tabler/icons-react": "^2.10.0",
