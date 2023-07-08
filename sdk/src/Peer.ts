@@ -11,8 +11,11 @@ import * as sage from "@dorkodu/sage-client";
 export class Peer {
   private headers: Record<string, string> = {};
   private session: Session | null = null;
+  private seeds: string[];
 
-  constructor() {}
+  constructor({ seeds = [] }: { seeds: string[] }) {
+    this.seeds = seeds;
+  }
 
   authenticate({ identifier, password }: AuthCredientals): boolean {
     // try to create a session

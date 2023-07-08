@@ -1,3 +1,5 @@
+import { Session } from "./auth";
+
 export type SeedID = string;
 
 /**
@@ -8,13 +10,14 @@ export type SeedID = string;
  */
 export class Seed {
   public url: string;
+  public session: Session;
 
   constructor(url: string) {
     this.url = url;
   }
 
   createSession({ identifier, password }: AuthCredientals) {
-    return {} satisfies Wander.Session;
+    return {} satisfies Session;
   }
 
   setHeader(header: string, value: string) {}

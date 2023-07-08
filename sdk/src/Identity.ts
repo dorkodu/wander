@@ -5,6 +5,20 @@ export type DID = {
   key: string;
 };
 
+export interface User {
+  id: ID;
+  username: string;
+  publicKey: string;
+  privateKey: string;
+}
+
+export type Account = {
+  user: User;
+  permissions: AccountPermissions;
+  knownAs: string;
+};
+
+export type AccountPermissions = any;
 export type DecentralizedUsername = string;
 
 export type CID = {
@@ -17,9 +31,3 @@ export type DIDDocument = {
   username: string;
   seed: string;
 };
-
-export interface User {
-  id: ID;
-  username: string;
-  publicKey: string;
-}

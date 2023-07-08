@@ -9,15 +9,18 @@ export type Operation = {
   // ... other operation-specific data
 };
 
+export type PermissionInfo = object;
+
 export type FreeFormData = DID | Record<string, Attribute<any>>;
 
 export type TimeStamp = number;
 
 export interface Entity {
   id: ID;
-  meta: Record<string, any>;
+  meta: Record<string, string>;
   data: FreeFormData;
   owner: User;
+  permissions: PermissionInfo;
   timestamp: TimeStamp;
 }
 
@@ -30,25 +33,6 @@ export interface ImmutableEntity extends Entity {
   parent: CID;
   did: DID;
   hash: string;
-}
-
-export interface LexiconDocument {
-  lexicon: 1;
-  id: NSID; // a string or NSID object
-  type: "method" | "entity" | "token";
-  revision?: number;
-  description?: string;
-  defs?: JSONSchema;
-
-  // if type == record
-  key?: string;
-  record?: JSONSchema;
-
-  // if type == query or procedure
-  parameters?: Record<string, XrpcParameter>;
-  input?: XrpcBody;
-  output?: XrpcBody;
-  errors?: XrpcError[];
 }
 
 export type Method = {};
