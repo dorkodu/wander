@@ -1,4 +1,4 @@
-import { Account, Entity, Schema, User } from "./Wander";
+import { Account, Entity, Schema, User } from "../Wander";
 
 export interface PodInterface {
   id: PodID;
