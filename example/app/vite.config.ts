@@ -40,6 +40,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@wander/sdk": path.resolve(__dirname, "../../sdk/src"),
     },
   },
   build: {

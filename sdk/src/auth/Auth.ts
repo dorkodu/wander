@@ -11,6 +11,7 @@ import { User } from "../Identity";
 
 export type Session = {
   user: User;
+  headers: Record<string, string>;
 };
 
 export type AuthCredientals = {

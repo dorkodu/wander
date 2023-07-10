@@ -38,14 +38,18 @@ export class Peer {
     return authResult;
   }
 
-  setRequestHeader(header: string, value: string) {
-    this.headers[header] = value;
+  setSessionHeader(key: string, value: string) {
+    this.session.headers[key] = value;
   }
 
   whoAmI() {
-    return this.session.user ?? null;
+    return this.session?.user ?? null;
     // returns the current user's session
     // just for fun..
+  }
+
+  getSession() {
+    return this.session;
   }
 
   connectToPod({ pod }: { pod: string }) {
@@ -53,11 +57,27 @@ export class Peer {
     // if succeeds
     return PodConnection();
   }
+
+  connectToSeed({ seed }: { seed: string }) {
+    // authenticate
+    // if succeeds
+    return SeedConnection();
+  }
 }
 
 interface Connection {}
 
 function PodConnection() {
+  return {
+    list({ repo, type }: { repo: string; type: string }) {}, // general purpose listing
+    create(identifier: { pod: string; type: string }, object: {}) {},
+    read({ id }: { type: string; id: ID }) {},
+    send() {},
+    delete() {},
+  };
+}
+
+function SeedConnection() {
   return {
     list({ repo, type }: { repo: string; type: string }) {}, // general purpose listing
     create(identifier: { pod: string; type: string }, object: {}) {},
