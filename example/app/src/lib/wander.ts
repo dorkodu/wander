@@ -5,9 +5,9 @@ const peer = new Wander.Peer({
 });
 
 // configure future calls to include the token in the Authorization header
-peer.setSessionHeader("Authorization", `Bearer ${response.data.accessToken}`);
+peer.setSessionHeader("Authorization", `Bearer 1234567890abcdefg`);
 
-const session = peer.authenticate({
+const result = peer.authenticate({
   identifier: "doruk.dorkodu.com",
   password: "wishyouwerehere",
 });
@@ -15,6 +15,9 @@ const session = peer.authenticate({
 const pod = peer.connectToPod({
   pod: "https://id.dorkodu.com",
 });
+
+const seed = peer.connectToSeed({ url: "id.dorkodu.com" });
+seed;
 
 /*
 // create an API instance with my pod

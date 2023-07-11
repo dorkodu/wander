@@ -58,7 +58,7 @@ export class Peer {
     return PodConnection();
   }
 
-  connectToSeed({ seed }: { seed: string }) {
+  connectToSeed({ url }: { url: string }) {
     // authenticate
     // if succeeds
     return SeedConnection();
@@ -84,5 +84,6 @@ function SeedConnection() {
     read({ id }: { type: string; id: ID }) {},
     send() {},
     delete() {},
+    on(event: string, callback: CallableFunction) {},
   };
 }
