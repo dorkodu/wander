@@ -1,15 +1,19 @@
 import { Emoji, SadFace } from "@/styles/emoji";
 import {
+  Anchor,
   Box,
   Container,
+  Divider,
   Flex,
   Group,
   Paper,
+  Space,
   Text,
   Title,
   useMantineTheme,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { ColorToggleSegment } from "./ColorToggle";
 
 export const SectionTitle = ({
   icon,
@@ -147,3 +151,39 @@ export const WIP = () => (
     </Paper>
   </Container>
 );
+
+export const Footer = () => {
+  const links = [
+    { link: "https://dorkodu.com", label: "Dorkodu" },
+    { link: "https://dorkodu.com/privacy", label: "Privacy" },
+    { link: "https://garden.dorkodu.com", label: "Garden" },
+    { link: "https://dorkodu.com/jobs", label: "Jobs" },
+  ];
+
+  const items = links.map((link) => (
+    <Anchor color="dimmed" key={link.label} href={link.link} size="sm">
+      {link.label}
+    </Anchor>
+  ));
+
+  return (
+    <div>
+      <Divider my="lg" maw={400} mx="auto" />
+      <Flex direction="column" my={20}>
+        <Flex direction="column" align="center" gap="xs">
+          <Flex gap="xs" justify="center" wrap="wrap">
+            {items}
+          </Flex>
+
+          <Text color="dimmed" weight={450}>
+            <b>Dorkodu</b> &copy; {new Date().getFullYear()}
+          </Text>
+
+          <ColorToggleSegment size="50" />
+        </Flex>
+
+        <Space h="xs" />
+      </Flex>
+    </div>
+  );
+};

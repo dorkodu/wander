@@ -1,8 +1,10 @@
 import { ColorToggleSegment } from "@/components/ColorToggle";
+import { Footer } from "@/components/Commons";
 
 import { ArrowRight, Emoji } from "@/styles/emoji";
 import {
   Anchor,
+  Box,
   Button,
   Container,
   Divider,
@@ -13,9 +15,11 @@ import {
   Space,
   Stack,
   Text,
+  ThemeIcon,
   Title,
   useMantineTheme,
 } from "@mantine/core";
+import { IconAsterisk } from "@tabler/icons-react";
 
 export default function Welcome() {
   return (
@@ -23,7 +27,6 @@ export default function Welcome() {
       <Header />
       <Hero />
       <Features />
-      <Divider my="lg" maw={600} mx="auto" />
       <Footer />
     </Container>
   );
@@ -68,14 +71,17 @@ const Hero = () => {
           my={-5}>
           This <b>minimalistic</b> peer for Wander
         </Text>
-        <Group my={8} position="center">
-          <Button size="md" radius="lg">
-            Connect Your Wallet
-          </Button>
-          <Button size="md" radius="lg" variant="light">
-            Create Account
-          </Button>
-        </Group>
+
+        <Box>
+          <Stack my={20} maw={300} mx="auto">
+            <Button size="lg" radius="lg">
+              Connect
+            </Button>
+            <Button size="lg" radius="lg" variant="light">
+              Create Account
+            </Button>
+          </Stack>
+        </Box>
       </Stack>
     </Container>
   );
@@ -84,45 +90,33 @@ const Hero = () => {
 const Features = () => {
   return (
     <Container size={360}>
-      <List icon={<Emoji emoji={ArrowRight} size={24} />} center>
-        <List.Item>Local-first</List.Item>
-        <List.Item>Privacy-friendly</List.Item>
-        <List.Item>Privacy-friendly</List.Item>
-        <List.Item>Privacy-friendly</List.Item>
+      <List
+        icon={
+          <ThemeIcon color="blue" variant="light" size={28}>
+            <IconAsterisk stroke={3} size={20} />
+          </ThemeIcon>
+        }
+        spacing={8}
+        center>
+        <List.Item>
+          <Text weight={700}>Local-first</Text>
+          <Text>Work on your device & then sync.</Text>
+        </List.Item>
+        <List.Item>
+          <Text weight={700}>Privacy-friendly</Text>
+          <Text>Only you can see your private objects. Fully encrypted.</Text>
+        </List.Item>
+        <List.Item>
+          <b>Open Source</b>
+          <Text>Collective work for the Humankind. Free forever.</Text>
+        </List.Item>
+        <List.Item>
+          <b>Own Your Data</b>
+          <Text>
+            Signed with your key. Stored on your pod and personal devices.
+          </Text>
+        </List.Item>
       </List>
     </Container>
-  );
-};
-
-const Footer = () => {
-  const links = [
-    { link: "https://dorkodu.com", label: "Dorkodu" },
-    { link: "https://dorkodu.com/privacy", label: "Privacy" },
-    { link: "https://garden.dorkodu.com", label: "Garden" },
-    { link: "https://dorkodu.com/jobs", label: "Jobs" },
-  ];
-
-  const items = links.map((link) => (
-    <Anchor color="dimmed" key={link.label} href={link.link} size="sm">
-      {link.label}
-    </Anchor>
-  ));
-
-  return (
-    <Flex direction="column" my={20}>
-      <Flex direction="column" align="center" gap="xs">
-        <Flex gap="xs" justify="center" wrap="wrap">
-          {items}
-        </Flex>
-
-        <Text color="dimmed" weight={450}>
-          <b>Dorkodu</b> &copy; {new Date().getFullYear()}
-        </Text>
-
-        <ColorToggleSegment size="50" />
-      </Flex>
-
-      <Space h="xs" />
-    </Flex>
   );
 };
