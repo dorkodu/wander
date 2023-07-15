@@ -1,7 +1,8 @@
+import { EventFeed } from "../commons/Event";
 import { Account, Entity, Schema, User } from "../Wander";
+import { DataStore } from "./DataStore";
 
 export interface PodInterface {
-  id: PodID;
   account: Account;
   context: Context;
   store: DataStore;
@@ -9,20 +10,12 @@ export interface PodInterface {
 }
 
 export class Pod implements PodInterface {
-  public id: PodID;
   public account: Account;
   public context: Context;
   public store: DataStore;
   public feed: EventFeed;
 
-  constructor({
-    id,
-    account,
-    context = {},
-    feed = {},
-    store = {},
-  }: PodInterface) {
-    this.id = id;
+  constructor({ account, context = {}, feed, store }: PodInterface) {
     this.account = account;
     this.context = context;
     this.store = store;
@@ -31,9 +24,4 @@ export class Pod implements PodInterface {
 }
 
 //? some necesssary but temporary type definitions
-export type PodID = string;
-export type EventID = string;
-export type EntityID = string;
 export type Context = Record<string, any>;
-export type DataStore = Record<EntityID, Entity>;
-export type EventFeed = Record<EventID, Event>;
