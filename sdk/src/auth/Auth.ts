@@ -5,15 +5,20 @@ export type Session = {
   headers: Record<string, string>;
 };
 
-export type AuthCredientals = {
+export type LoginCredientals = {
   identifier: string;
   password: string;
 };
 
-export const Auth = {
-  login(who: AuthCredientals) {},
+export type NewAccount = {
+  username: string;
+  password: string;
+};
 
-  createAccount() {
+export const Auth = {
+  login(who: LoginCredientals) {},
+
+  createAccount({ username, password }: NewAccount) {
     //? generate new keys
   },
 };

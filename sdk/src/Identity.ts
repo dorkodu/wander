@@ -9,7 +9,7 @@ export interface User {
   id: ID;
   username: string;
   publicKey: string;
-  privateKey: string;
+  privateKey?: string;
 }
 
 export type Account = {

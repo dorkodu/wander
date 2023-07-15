@@ -1,5 +1,5 @@
 import { SeedID } from "./Seed";
-import { ConnectionType, Peer } from "./Peer";
+import { Peer } from "./Peer";
 
 export * from "./Peer";
 export * from "./Identity";

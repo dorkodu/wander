@@ -1,5 +1,5 @@
 import { ID, User } from "./Identity";
-import { AuthCredientals, Session } from "./auth";
+import * as Auth from "./auth";
 import * as sage from "@dorkodu/sage-client";
 
 /**
@@ -10,7 +10,7 @@ import * as sage from "@dorkodu/sage-client";
  */
 export class Peer {
   private headers: Record<string, string> = {};
-  private session: Session | null = null;
+  private session: Session;
   private seeds: string[];
 
   constructor({ seeds = [] }: { seeds: string[] }) {
@@ -19,16 +19,7 @@ export class Peer {
 
   authenticate({ identifier, password }: AuthCredientals): boolean {
     // try to create a session
-    const authResult = true;
-
-    // dummy data
-    const dummySession: Session = {
-      user: {
-        id: 1,
-        username: "doruk.dorkodu.com",
-        publicKey: "1234567890abcdefgi",
-      },
-    };
+    const authResult = Auth.;
 
     if (authResult) {
       // save credientials locally for future use
@@ -72,7 +63,7 @@ function PodConnection() {
     list({ repo, type }: { repo: string; type: string }) {}, // general purpose listing
     create(identifier: { pod: string; type: string }, object: {}) {},
     read({ id }: { type: string; id: ID }) {},
-    send() {},
+    update() {},
     delete() {},
   };
 }
@@ -82,7 +73,7 @@ function SeedConnection() {
     list({ repo, type }: { repo: string; type: string }) {}, // general purpose listing
     create(identifier: { pod: string; type: string }, object: {}) {},
     read({ id }: { type: string; id: ID }) {},
-    send() {},
+    update() {},
     delete() {},
     on(event: string, callback: CallableFunction) {},
   };

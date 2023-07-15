@@ -1,4 +1,4 @@
-import { CID, DID, ID, NSID, User } from "./Identity";
+import { CID, DID, ID, User } from "./Identity";
 
 export type Hash = string;
 
@@ -54,24 +54,29 @@ export interface TokenLexicon {
   };
 }
 
-const Lexicon: LexiconDocument = {
-  lexicon: 1,
-  id: "com.example.getProfile",
-  type: "query",
-  parameters: {
-    user: { type: "string", required: true },
-  },
-  output: {
-    encoding: "application/json",
-    schema: {
-      type: "object",
-      required: ["did", "name"],
-      properties: {
-        did: { type: "string" },
-        name: { type: "string" },
-        displayName: { type: "string", maxLength: 64 },
-        description: { type: "string", maxLength: 256 },
+/**
+  const Lexicon: LexiconDocument = {
+    lexicon: 1,
+    id: "com.example.getProfile",
+    type: "query",
+    parameters: {
+      user: { type: "string", required: true },
+    },
+    output: {
+      encoding: "application/json",
+      schema: {
+        type: "object",
+        required: ["did", "name"],
+        properties: {
+          did: { type: "string" },
+          name: { type: "string" },
+          displayName: { type: "string", maxLength: 64 },
+          description: { type: "string", maxLength: 256 },
+        },
       },
     },
-  },
-};
+  };
+*/
+
+export type EventID = string;
+export type EntityID = string;
