@@ -4,10 +4,10 @@ import {
   type Relay,
   type Sub,
   type SubscriptionOptions,
-} from "./relay";
-import { normalizeURL } from "./utils";
+} from "./Relay";
+import { normalizeURL } from "./Utils";
 
-import type { Event } from "./event";
+import type { Event } from "./Event";
 import type { Filter } from "./filter";
 
 export class SimplePool {
