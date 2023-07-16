@@ -1,36 +1,22 @@
-import { Session } from "./auth";
+import { Schema } from "./Data";
 
 export type SeedID = string;
 
-/**
- * TODO: implement client-server logic
- * ? data structures like sage classic
- * ? server communication
- * ? validation of types
- */
 export class Seed {
-  public url: string;
-  public session: Session;
+  private id: SeedID;
+  private schema: Schema;
 
-  constructor(url: string) {
-    this.url = url;
+  constructor({ schema }: { schema: Schema }) {
+    this.schema = schema;
+    this.id = generateSeedID();
   }
 
-  createSession({ identifier, password }: AuthCredientals) {
-    return {} satisfies Session;
-  }
+  // starts running a seed on wander network using the given transport protocol
+  run() {}
+}
 
-  setHeader(header: string, value: string) {}
+function generateSeedID(): SeedID {
+  let id = "GENESIS";
 
-  list() {} // general purpose
-
-  whoAmI() {} // just for fun..
-
-  create(identifier: {}, object: {}) {}
-
-  read() {}
-
-  send() {}
-
-  delete() {}
+  return "wander.seed:" + id;
 }
