@@ -1,13 +1,16 @@
 import { User } from "../Identity";
-import { generatePrivateKey } from "../commons/Crypto";
 
 export type Session = {
   user: User;
   headers: Record<string, string>;
+  credientals: {
+    who: UserIdentifier;
+    password: string;
+  };
 };
 
 export type LoginCredientals = {
-  identifier: string;
+  user: UserIdentifier;
   password: string;
 };
 

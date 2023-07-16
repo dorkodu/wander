@@ -1,4 +1,4 @@
-import { NSID, NSIDDocument, WanderID } from "./Name";
+import { NSID, NSIDDocument, PublicKey, WanderID } from "./Name";
 
 export type SchemaNames = Record<string, NSIDDocument>;
 export type UsernameDirectory = Record<string, NSIDDocument>;
@@ -7,12 +7,15 @@ export type Usernames = Record<string, NSIDDocument>;
 
 export class NameService {
   private schemaNames: SchemaNames;
-  private names: Record<string, WanderId>;
-  private links: Record<string, NSID>;
+  private addressBook: AddressBook;
 
-  constructor({ schemaNames, names, links }) {
-    this.links = links;
-    this.schemaNames = schemaNames;
-    this.links = links;
+  constructor({ book }: { book: AddressBook }) {
+    this.addressBook = book;
   }
+}
+
+export class AddressBook {
+  private schemaNames: SchemaNames;
+  private names: Record<string, PublicKey>;
+  private links: Record<string, CID>;
 }

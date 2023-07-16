@@ -1,5 +1,5 @@
 import { ID, User } from "./Identity";
-import { LoginCredientals, login } from "./auth";
+import { LoginCredientals, Session, login } from "./auth";
 import * as sage from "@dorkodu/sage-client";
 
 /**
@@ -9,8 +9,9 @@ import * as sage from "@dorkodu/sage-client";
  * ? validation of types
  */
 export class Peer {
+  public session: Session | null = null;
   private headers: Record<string, string> = {};
-  private session: Session;
+
   private seeds: string[];
 
   constructor({ seeds = [] }: { seeds: string[] }) {
@@ -21,16 +22,16 @@ export class Peer {
     // try to create a session
     const authResult = login(who);
 
-    if (authResult) {
+    if (authResult.result) {
       // save credientials and session locally for future use
-      this.session = ;
+      this.session = authResult.session;
     }
 
-    return authResult;
+    return authResult.result;
   }
 
   setSessionHeader(key: string, value: string) {
-    this.session.headers[key] = value;
+    this.headers[key] = value;
   }
 
   whoAmI() {
@@ -39,12 +40,9 @@ export class Peer {
     // just for fun..
   }
 
-  getSession() {
-    return this.session;
-  }
-
-  connectToPod({ pod }: { pod: string }) {
+  connectToPod({ url }: { url: string }) {
     // authenticate
+    this.authenticate();
     // if succeeds
     return PodConnection();
   }

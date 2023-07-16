@@ -8,12 +8,12 @@ const peer = new Wander.Peer({
 peer.setSessionHeader("Authorization", `Bearer 1234567890abcdefg`);
 
 const result = peer.authenticate({
-  identifier: "doruk.dorkodu.com",
+  user: "doruk.dorkodu.com",
   password: "wishyouwerehere",
 });
 
 const pod = peer.connectToPod({
-  pod: "https://id.dorkodu.com",
+  url: "https://id.dorkodu.com",
 });
 
 const seed = peer.connectToSeed({ url: "id.dorkodu.com" });
