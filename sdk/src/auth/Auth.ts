@@ -1,4 +1,5 @@
 import { User } from "../Identity";
+import { generatePrivateKey } from "../commons/Crypto";
 
 export type Session = {
   user: User;
@@ -10,15 +11,18 @@ export type LoginCredientals = {
   password: string;
 };
 
-export type NewAccount = {
-  username: string;
-  password: string;
+export type LoginAttempt = {
+  result: boolean;
+  session: Session;
 };
 
-export const Auth = {
-  login(who: LoginCredientals) {},
+export function createSession() {}
 
-  createAccount({ username, password }: NewAccount) {
-    //? generate new keys
-  },
-};
+export function login(who: LoginCredientals): LoginAttempt {
+  let session = createSession();
+
+  return {
+    result: true,
+    session: {},
+  };
+}

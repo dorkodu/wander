@@ -1,3 +1,5 @@
+import { generatePrivateKey } from "./commons/Crypto";
+
 export type ID = string | number | DID;
 
 export type DID = {
@@ -31,3 +33,16 @@ export type DIDDocument = {
   username: string;
   seed: string;
 };
+
+
+export type NewAccountInput = {
+  username: string;
+  password: string;
+};
+
+
+export function createAccount({ username, password }: NewAccountInput) {
+  //? generate new keys
+  const privKey = generatePrivateKey()
+}
+

@@ -1,5 +1,5 @@
 import { ID, User } from "./Identity";
-import * as Auth from "./auth";
+import { LoginCredientals, login } from "./auth";
 import * as sage from "@dorkodu/sage-client";
 
 /**
@@ -17,13 +17,13 @@ export class Peer {
     this.seeds = seeds;
   }
 
-  authenticate({ identifier, password }: AuthCredientals): boolean {
+  authenticate(who: LoginCredientals): boolean {
     // try to create a session
-    const authResult = Auth.;
+    const authResult = login(who);
 
     if (authResult) {
-      // save credientials locally for future use
-      this.session = dummySession;
+      // save credientials and session locally for future use
+      this.session = ;
     }
 
     return authResult;
