@@ -50,29 +50,6 @@ export class Peer {
   connectToSeed({ url }: { url: string }) {
     // authenticate
     // if succeeds
-    return SeedConnection();
+    return createSeedConnection();
   }
-}
-
-interface Connection {}
-
-function PodConnection() {
-  return {
-    list({ repo, type }: { repo: string; type: string }) {}, // general purpose listing
-    create(identifier: { pod: string; type: string }, object: {}) {},
-    read({ id }: { type: string; id: ID }) {},
-    update() {},
-    delete() {},
-  };
-}
-
-function SeedConnection() {
-  return {
-    list({ repo, type }: { repo: string; type: string }) {}, // general purpose listing
-    create(identifier: { pod: string; type: string }, object: {}) {},
-    read({ id }: { type: string; id: ID }) {},
-    update() {},
-    delete() {},
-    on(event: string, callback: CallableFunction) {},
-  };
 }
