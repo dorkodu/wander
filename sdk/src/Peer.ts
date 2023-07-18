@@ -1,6 +1,6 @@
 import { ID, User } from "./Identity";
 import { LoginCredientals, Session, login } from "./auth";
-import * as sage from "@dorkodu/sage-client";
+import SageClient from "@dorkodu/sage-client";
 
 /**
  * TODO: implement client-server logic
@@ -42,6 +42,7 @@ export class Peer {
 
   connectToPod({ url }: { url: string }) {
     // authenticate
+
     this.authenticate();
     // if succeeds
     return PodConnection();
