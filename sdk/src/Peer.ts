@@ -45,7 +45,7 @@ export class Peer {
 
     this.authenticate();
     // if succeeds
-    return PodConnection();
+    return createPodConnection();
   }
 
   connectToSeed({ url }: { url: string }) {

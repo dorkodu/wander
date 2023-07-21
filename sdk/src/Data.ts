@@ -1,3 +1,4 @@
+import { Serializable } from "child_process";
 import { CID, DID, ID, User } from "./Identity";
 
 export type Hash = string;
@@ -12,11 +13,13 @@ export type Operation = {
 export type PermissionInfo = object;
 
 export type FreeFormData = DID | Record<string, Attribute<any>>;
+export type EntityType = string;
 
 export type TimeStamp = number;
 
 export interface Entity {
   id: ID;
+  type: EntityType;
   meta: Record<string, string>;
   data: FreeFormData;
   owner: User;
@@ -25,8 +28,9 @@ export interface Entity {
 }
 
 export interface Attribute<T> {
-  data: T;
+  name: string;
   description?: string;
+  data: T;
 }
 
 export interface ImmutableEntity extends Entity {
@@ -35,26 +39,36 @@ export interface ImmutableEntity extends Entity {
   hash: string;
 }
 
-export type Method = {};
-
-export type Schema = {
-  methods: Record<string, Method>;
+export type Method<TInput, TOutput> = {
+  name: string;
+  description?: string;
+  do: (input: TInput) => TOutput;
 };
 
-export interface TokenLexicon {
-  lexicon: 1;
-  id: "com.example.trafficLight";
-  type: "record";
-  record: {
-    type: "object";
-    required: ["state"];
-    properties: {
-      state: { type: "string"; enum: ["red", "yellow", "green"] };
-    };
-  };
-}
+export type Stringifiable = string | number | boolean | bigint | object;
 
-/**
+export type StandardMethodInput = Record<string, Stringifiable>;
+export type StandardMethodOutput = Stringifiable;
+
+export type Schema = {
+  methods: Record<string, Method<StandardMethodInput, StandardMethodOutput>>;
+  entities: Record<string, Entity>;
+};
+
+/** 
+  export interface TokenLexicon {
+    lexicon: 1;
+    id: "com.example.trafficLight";
+    type: "record";
+    record: {
+      type: "object";
+      required: ["state"];
+      properties: {
+        state: { type: "string"; enum: ["red", "yellow", "green"] };
+      };
+    };
+  }
+
   const Lexicon: LexiconDocument = {
     lexicon: 1,
     id: "com.example.getProfile",

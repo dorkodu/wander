@@ -1,8 +1,10 @@
 export interface Connection {}
 
+// ---------------- POD ----------------------
+
 function createPodConnection() {
   return {
-    list({ repo, type }: { repo: string; type: string }) {}, // general purpose listing
+    list({ type, args }: { type: EntityTypr, args: Arguments }) {}, // general purpose listing
     create(identifier: { pod: string; type: string }, object: {}) {},
     read({ id }: { type: string; id: ID }) {},
     update() {},
@@ -10,11 +12,7 @@ function createPodConnection() {
   };
 }
 
-export interface SeedConnection {
-  list: ({ repo, type }: { repo: string; type: string }) => string[];
-  publish: (identifier: { pod: string; type: string }, object: {}) => boolean;
-  on: (eventName: string, callback: CallableFunction) => void;
-}
+
 
 export interface PodConnection {
   list: ({ repo, type }: { repo: string; type: string }) => string[];
@@ -22,6 +20,14 @@ export interface PodConnection {
   read({ id }: { type: string; id: ID }) {},
   update() {},
   delete() {},
+}
+
+// ---------------- SEED ----------------------
+
+export interface SeedConnection {
+  list: ({ repo, type }: { repo: string; type: string }) => string[];
+  publish: (identifier: { pod: string; type: string }, object: {}) => boolean;
+  on: (eventName: string, callback: CallableFunction) => void;
 }
 
 function createSeedConnection(): SeedConnection {

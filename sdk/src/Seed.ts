@@ -11,12 +11,13 @@ export class Seed {
     this.id = generateSeedID();
   }
 
-  // starts running a seed on wander network using the given transport protocol
+  //? starts running a seed on wander network using the given transport protocol
+  // supports HTTP and WebSocket
   run() {}
 }
 
 function generateSeedID(): SeedID {
   let id = "GENESIS";
 
-  return "wander.seed:" + id;
+  return "wander:seed:" + id;
 }
