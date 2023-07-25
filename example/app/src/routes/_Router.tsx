@@ -1,16 +1,37 @@
 import CenterLoader from "@/components/loaders/CenterLoader";
 import React, { Suspense } from "react";
-import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Navigate,
+  Route,
+} from "react-router-dom";
 import App from "../App";
 import { useWait } from "../components/hooks";
 
-// Lazy routes \\
+// Lazy routes
 const LazyWelcome = React.lazy(useWait(() => import("./Welcome")));
+const LazyHome = React.lazy(useWait(() => import("./Home")));
 const LazyNotFound = React.lazy(useWait(() => import("./NotFound")));
-// Lazy routes \\
+// Lazy routes
 
-const Welcome = <Suspense fallback={<CenterLoader />}><LazyWelcome /></Suspense>
-const NotFound = <Suspense fallback={<CenterLoader />}><LazyNotFound /></Suspense>
+const Welcome = (
+  <Suspense fallback={<CenterLoader />}>
+    <LazyWelcome />
+  </Suspense>
+);
+
+const Home = (
+  <Suspense fallback={<CenterLoader />}>
+    <LazyHome />
+  </Suspense>
+);
+
+const NotFound = (
+  <Suspense fallback={<CenterLoader />}>
+    <LazyNotFound />
+  </Suspense>
+);
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,10 +40,11 @@ export const router = createBrowserRouter(
       <Route index element={<Navigate to="/welcome" />} />
 
       <Route path="/welcome" element={Welcome} />
+      <Route path="/home" element={Home} />
 
       {/* Error routes & catch all */}
       <Route path="/404" element={NotFound} />
       <Route path="*" element={<Navigate to="/404" />} />
     </Route>
   )
-)
+);

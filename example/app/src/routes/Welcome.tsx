@@ -1,18 +1,11 @@
-import { ColorToggleSegment } from "@/components/ColorToggle";
 import { Footer } from "@/components/Commons";
 
-import { ArrowRight, Emoji } from "@/styles/emoji";
 import {
-  Anchor,
   Box,
   Button,
   Container,
-  Divider,
-  Flex,
-  Group,
   Image,
   List,
-  Space,
   Stack,
   Text,
   ThemeIcon,
@@ -20,6 +13,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { IconAsterisk } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Welcome() {
   return (
@@ -74,7 +68,7 @@ const Hero = () => {
 
         <Box>
           <Stack my={20} maw={300} mx="auto">
-            <Button size="lg" radius="lg">
+            <Button size="lg" radius="lg" onClick={() => {}}>
               Connect
             </Button>
             <Button size="lg" radius="lg" variant="light">
