@@ -9,7 +9,7 @@ export type DID = {
 
 export interface User {
   id: ID;
-  username: string;
+  names: Name[];
   publicKey: string;
   privateKey?: string;
 }
@@ -37,12 +37,14 @@ export type DIDDocument = {
 
 export type NewAccountInput = {
   username: string;
+  email: string;
   password: string;
 };
 
 
-export function createAccount({ username, password }: NewAccountInput) {
+export function createAccount({ username, password, email }: NewAccountInput) {
   //? generate new keys
-  const privKey = generatePrivateKey()
+  let sk = generatePrivateKey() // `sk` is a hex string
+  let pk = getPublicKey(sk) // `pk` is a hex string
 }
 

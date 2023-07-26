@@ -28,7 +28,7 @@ export const NSID = {
   },
 };
 
-export type UserIdentifier = Webname | Mailname | PublicKey;
-export type Webname = string;
-export type Mailname = string;
+export type UserIdentifier = WebName | EmailName | PublicKey;
+export type WebName = string;
+export type EmailName = string;
 export type PublicKey = string;

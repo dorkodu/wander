@@ -1,6 +1,6 @@
 # Wander Protocol
 
-This is a working repository for Wander, a
+This is a working repository for Wander, a decentralized social protocol s
 
 ---
 

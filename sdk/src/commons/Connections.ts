@@ -4,15 +4,13 @@ export interface Connection {}
 
 function createPodConnection() {
   return {
-    list({ type, args }: { type: EntityTypr, args: Arguments }) {}, // general purpose listing
+    list({ type, args }: { type: EntityType, args: Arguments }) {}, // general purpose listing
     create(identifier: { pod: string; type: string }, object: {}) {},
     read({ id }: { type: string; id: ID }) {},
     update() {},
     delete() {},
   };
 }
-
-
 
 export interface PodConnection {
   list: ({ repo, type }: { repo: string; type: string }) => string[];

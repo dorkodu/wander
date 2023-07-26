@@ -3,6 +3,37 @@ import type { Event } from "./Event";
 export const utf8Decoder = new TextDecoder("utf-8");
 export const utf8Encoder = new TextEncoder();
 
+export const globalContext =
+  typeof window !== "undefined"
+    ? window
+    : typeof self === "object"
+    ? self
+    : global;
+
+export const getGlobalContext = (): any => {
+  return typeof window !== "undefined"
+    ? window
+    : typeof self === "object"
+    ? self
+    : global;
+};
+
+export const isLocalStorageAvailable = (): boolean => {
+  const context = getGlobalContext();
+
+  if (!("localStorage" in context)) {
+    return false;
+  }
+
+  try {
+    context.localStorage.setItem("rs-check", "1");
+    context.localStorage.removeItem("rs-check");
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
 export function normalizeURL(url: string): string {
   let p = new URL(url);
   p.pathname = p.pathname.replace(/\/+/g, "/");
@@ -16,6 +47,43 @@ export function normalizeURL(url: string): string {
   p.hash = "";
   return p.toString();
 }
+
+/**
+ * Extract and parse JSON data from localStorage.
+ *
+ * @param {string} key - localStorage key
+ *
+ * @returns {object} parsed object or undefined
+ */
+export const getJSONFromLocalStorage = (
+  key: string
+): { [key: string]: any } => {
+  const context = getGlobalContext() as Window;
+
+  try {
+    return JSON.parse(context.localStorage.getItem(key));
+  } catch (e) {}
+};
+
+/**
+ * Decide if data should be treated as binary based on the content (presence of non-printable characters
+ * or replacement character) and content-type.
+ *
+ * @param {string} content - The data
+ * @param {string} mimeType - The data's content-type
+ *
+ * @returns {boolean}
+ */
+export const shouldBeTreatedAsBinary = (
+  content: string | ArrayBuffer,
+  mimeType: string
+): boolean => {
+  // eslint-disable-next-line no-control-regex
+  return !!(
+    (mimeType && mimeType.match(/charset=binary/)) ||
+    /[\x00-\x08\x0E-\x1F\uFFFD]/.test(content as string)
+  );
+};
 
 //
 // fast insert-into-sorted-array functions adapted from https://github.com/terrymorse58/fast-sorted-array

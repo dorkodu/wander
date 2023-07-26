@@ -1,15 +1,13 @@
-# nostr-tools
+# Examples for Wander SDK
 
-Tools for developing [Nostr](https://github.com/fiatjaf/nostr) clients.
+Primitives for developing software on [Wander](https://github.com/fiatjaf/nostr) protocol.
 
 Only depends on _@scure_ and _@noble_ packages.
-
-This package is only providing lower-level functionality. If you want an easy-to-use fully-fledged solution that abstracts the hard parts of Nostr and makes decisions on your behalf, take a look at [NDK](https://github.com/nostr-dev-kit/ndk) and [@snort/system](https://www.npmjs.com/package/@snort/system).
 
 ## Installation
 
 ```bash
- npm install nostr-tools # or yarn add nostr-tools
+ npm install @dorkodu/wander # or yarn add @dorkodu/wander
 ```
 
 ## Usage
@@ -45,22 +43,14 @@ let event = {
 event.id = getEventHash(event)
 event.sig = getSignature(event, privateKey)
 
-let ok = validateEvent(event)
-let veryOk = verifySignature(event)
+let fine = validateEvent(event)
+let perfect = verifySignature(event)
 ```
 
-### Interacting with a relay
+### Interacting with a *seed*
 
 ```js
-import {
-  relayInit,
-  generatePrivateKey,
-  getPublicKey,
-  getEventHash,
-  getSignature
-} from 'nostr-tools'
-
-const relay = relayInit('wss://relay.example.com')
+const seed = peer.('wss://relay.example.com')
 relay.on('connect', () => {
   console.log(`connected to ${relay.url}`)
 })

@@ -1,24 +1,28 @@
 import * as Wander from "@wander/sdk";
 
-const peer = new Wander.Peer({
+const wander = new Wander.Peer({
   seeds: [],
 });
 
 // configure future calls to include the token in the Authorization header
-peer.setSessionHeader("Authorization", `Bearer 1234567890abcdefg`);
+wander.setSessionHeader("Authorization", `Bearer 1234567890abcdefg`);
 
-const result = peer.authenticate({
+const result = wander.authenticate({
   user: "doruk.dorkodu.com",
   password: "wishyouwerehere",
 });
 
-const pod = peer.connectToPod({
+// get current authenticated user's session
+const session = wander.session;
+
+//
+const pod = wander.connectToPod({
   url: "https://id.dorkodu.com",
 });
 
 //? SEED CONNECTION
 
-const seed = peer.connectToSeed({ url: "id.dorkodu.com" });
+const seed = wander.connectToSeed({ url: "id.dorkodu.com" });
 
 seed.on("connect", () => {
   console.log(`connected to ${seed.url}`);
@@ -69,13 +73,16 @@ let event = {
   tags: [],
   content: "hello world",
 };
+
 event.id = getEventHash(event);
 event.sig = getSignature(event, sk);
 
 let pub = relay.publish(event);
+
 pub.on("ok", () => {
   console.log(`${relay.url} has accepted our event`);
 });
+
 pub.on("failed", (reason) => {
   console.log(`failed to publish to ${relay.url}: ${reason}`);
 });

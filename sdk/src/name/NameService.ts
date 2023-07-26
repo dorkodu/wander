@@ -1,11 +1,6 @@
 import { CID } from "../Identity";
 
-import { NSID, NSIDDocument, PublicKey, WanderID } from "./Name";
-
-export type SchemaNames = Record<string, NSIDDocument>;
-export type UsernameDirectory = Record<string, NSIDDocument>;
-export type Names = Record<string, WanderID>;
-export type Usernames = Record<string, NSIDDocument>;
+import { PublicKey } from "./Name";
 
 export class NameService {
   private addressBook: AddressBook;
@@ -18,12 +13,20 @@ export class NameService {
     this.addressBook.names[name] = pubkey;
   }
 
+  getUserId(name: string) {}
+
+  getLink(link: string) {}
+
   addLink(link: string, cid: CID) {
     this.addressBook.links[link] = cid;
   }
 
-  removeName() {}
-  removeLink({}) {}
+  removeName(name: string) {
+    delete this.addressBook.names[name];
+  }
+  removeLink(link: string) {
+    delete this.addressBook.links[link];
+  }
 }
 
 export interface AddressBook {

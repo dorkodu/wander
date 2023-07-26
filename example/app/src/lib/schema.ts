@@ -1,4 +1,4 @@
-import { Wander } from "@wander/sdk";
+import * as Wander from "@wander/sdk";
 
 export interface Image {}
 
@@ -52,4 +52,13 @@ export interface Lyf extends Wander.Entity {
     image?: Image;
     text: string;
   };
+}
+
+export interface UserProfile {
+  picture: string;
+  bio: string;
+  link: string;
+  location: string;
+  // add custom fields to your profile
+  fields: Record<string, string>;
 }
