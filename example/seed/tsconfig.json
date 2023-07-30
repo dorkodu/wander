@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "outDir": "./dist",
+    "removeComments": true,
+    "skipLibCheck": true,
+
+    "paths": {
+      //"@core/*": ["../core/src/*"],
+    }
+  },
+  "include": ["./src/**/*"],
+  "include": ["src"],
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "exclude": ["node_modules"]
+}
