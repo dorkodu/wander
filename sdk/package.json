@@ -1,5 +1,5 @@
 {
-  "name": "sdk",
+  "name": "@dorkodu/wander",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
