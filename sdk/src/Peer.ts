@@ -1,6 +1,7 @@
 import { ID, User } from "./Identity";
 import { LoginCredientals, Session, login } from "./auth";
-import SageClient from "@dorkodu/sage-client";
+
+import SageClient from "@dorkodu/sage";
 
 /**
  * TODO: implement client-server logic
@@ -14,7 +15,7 @@ export class Peer {
 
   private seeds: string[];
 
-  constructor({ seeds = [] }: { seeds: string[] }) {
+  constructor({ seeds = [] }: { seeds?: string[] }) {
     this.seeds = seeds;
   }
 

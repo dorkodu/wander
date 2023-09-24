@@ -1,4 +1,4 @@
-export * from "./Wander.js";
+export * from "./Wander.ts";
 
 /*
 export * from './references.ts'
