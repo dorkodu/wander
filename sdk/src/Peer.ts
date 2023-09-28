@@ -1,7 +1,10 @@
 import { ID, User } from "./Identity";
 import { LoginCredientals, Session, login } from "./auth";
+import { sage } from '@dorkodu/sage';
 
-import SageClient from "@dorkodu/sage";
+interface PeerConfig {
+  seeds?: string[];
+}
 
 /**
  * TODO: implement client-server logic
@@ -12,10 +15,11 @@ import SageClient from "@dorkodu/sage";
 export class Peer {
   public session: Session | null = null;
   private headers: Record<string, string> = {};
+  private sage = sage.use<Schema>();
 
   private seeds: string[];
 
-  constructor({ seeds = [] }: { seeds?: string[] }) {
+  constructor({ seeds = [] }: PeerConfig) {
     this.seeds = seeds;
   }
 
