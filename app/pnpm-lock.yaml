@@ -5,15 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@dorkodu/sage':
+    specifier: ^0.1.4
+    version: 0.1.4
   '@mantine/core':
-    specifier: 7.0.1
-    version: 7.0.1(@mantine/hooks@7.0.1)(@types/react@18.2.23)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^7.1.0
+    version: 7.1.0(@mantine/hooks@7.1.0)(@types/react@18.2.23)(react-dom@18.2.0)(react@18.2.0)
   '@mantine/hooks':
-    specifier: 7.0.1
-    version: 7.0.1(react@18.2.0)
+    specifier: ^7.1.0
+    version: 7.1.0(react@18.2.0)
   '@mantine/vanilla-extract':
-    specifier: 7.0.1
-    version: 7.0.1(@mantine/core@7.0.1)
+    specifier: ^7.1.0
+    version: 7.1.0(@mantine/core@7.1.0)
   '@vanilla-extract/css':
     specifier: ^1.11.1
     version: 1.13.0
@@ -314,6 +317,10 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
     dev: true
+
+  /@dorkodu/sage@0.1.4:
+    resolution: {integrity: sha512-OGOjnYSor47VClpLgZ72ybcQE7m8mN4DYbpEpqBH6xSO+ju11JDeVLshd6h2pArMpAGeK9TzjId2FpSBP2sQEA==}
+    dev: false
 
   /@emotion/hash@0.9.1:
     resolution: {integrity: sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ==}
@@ -842,15 +849,15 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@mantine/core@7.0.1(@mantine/hooks@7.0.1)(@types/react@18.2.23)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-cQqQWo5uZy6G+5WwEFRt6hoHwADVRy0IQ4pW+dyhcfp1aHYHf9C1T2vP/naUZR3nczYr5j63ZVgiSwqQaqc17Q==}
+  /@mantine/core@7.1.0(@mantine/hooks@7.1.0)(@types/react@18.2.23)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-DNexnix5Lz7na8bfXCNVDsCsorxMzF1we3mtU33B0mLyiLkH47BhpgKNxvf5OjEK5SUJ0Bi7r5m91Tm7pmAB7w==}
     peerDependencies:
-      '@mantine/hooks': 7.0.1
+      '@mantine/hooks': 7.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
       '@floating-ui/react': 0.24.8(react-dom@18.2.0)(react@18.2.0)
-      '@mantine/hooks': 7.0.1(react@18.2.0)
+      '@mantine/hooks': 7.1.0(react@18.2.0)
       clsx: 2.0.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -862,20 +869,20 @@ packages:
       - '@types/react'
     dev: false
 
-  /@mantine/hooks@7.0.1(react@18.2.0):
-    resolution: {integrity: sha512-rPHghtUh1YYhArZzhVHMWEX4kWVieffuuaOGB8954Yyw0o1X7wIgQ35cVRS52CGtFbUToS7kaYSdxI0THkca/Q==}
+  /@mantine/hooks@7.1.0(react@18.2.0):
+    resolution: {integrity: sha512-XW8qYNoS81bIWmdI7yZV8BmBkTtr0//3fyBJ2dcKRSKWY5HVNPkLDXPQk9/E4bpQIRmufDGQ6pLmUfY+0VjO3g==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
       react: 18.2.0
     dev: false
 
-  /@mantine/vanilla-extract@7.0.1(@mantine/core@7.0.1):
-    resolution: {integrity: sha512-wBbMADbYLazPA3eh++hzm78vUPK4lZZoP4+jrBWcilbl2I9vKgKs10mL22jpH9s8ac4gPzUdgvILwDh60zX1/g==}
+  /@mantine/vanilla-extract@7.1.0(@mantine/core@7.1.0):
+    resolution: {integrity: sha512-43Tc3lpe4c7tj//1swxi/KRxoAnBpiKmENcUVBnAt62JnUlGDwU+j+TA6OSG8iwYr97GP9OUcTzuAyfuj6QvFA==}
     peerDependencies:
-      '@mantine/core': 7.0.1
+      '@mantine/core': 7.1.0
     dependencies:
-      '@mantine/core': 7.0.1(@mantine/hooks@7.0.1)(@types/react@18.2.23)(react-dom@18.2.0)(react@18.2.0)
+      '@mantine/core': 7.1.0(@mantine/hooks@7.1.0)(@types/react@18.2.23)(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
