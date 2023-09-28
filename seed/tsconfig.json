@@ -10,7 +10,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
-    "module": "NodeNext",
+
     "outDir": "./dist",
     "removeComments": true,
     "skipLibCheck": true,
@@ -19,8 +19,5 @@
       //"@core/*": ["../core/src/*"],
     }
   },
-  "include": ["./src/**/*"],
-  "include": ["src"],
-  "extends": "@tsconfig/node16/tsconfig.json",
-  "exclude": ["node_modules"]
+  "include": ["./src/**/*", "index.ts"]
 }

@@ -2,108 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Wandermind</title>
-    <meta name="title" content="Wandermind" />
-    <meta name="description" content="Your Digital Identity @ Dorkodu" />
-
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="https://id.dorkodu.com/id.svg" />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="https://id.dorkodu.com/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="https://id.dorkodu.com/apple-touch-icon.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="https://id.dorkodu.com/favicon-32x32.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="https://id.dorkodu.com/favicon-16x16.png" />
-    <link
-      rel="mask-icon"
-      href="https://id.dorkodu.com/safari-pinned-tab.svg"
-      color="#00cc30" />
-
-    <meta name="msapplication-TileColor" content="#00cc30" />
-    <meta name="theme-color" content="#00cc30" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin="anonymous" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet" />
-
-    <style>
-      @font-face {
-        font-family: Rubik;
-        src: url("./src/assets/fonts/Rubik.woff2") format("woff2");
-        font-display: fallback;
-      }
-
-      .hidden {
-        position: absolute;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        width: 1px;
-        margin: -1px;
-        padding: 0;
-        border: 0;
-      }
-    </style>
-
-    <!-- Light/dark theme switcher, minified and original code. -->
-    <script>
-      function set(e) {
-        let t = "light" === e ? "#ffffff" : "#1A1B1E";
-        (document.documentElement.style.backgroundColor = t),
-          document
-            .querySelector('meta[name="theme-color"]')
-            .setAttribute("content", t);
-      }
-      let theme = localStorage.getItem("theme");
-      "light" !== theme &&
-        "dark" !== theme &&
-        ((theme = "light"), localStorage.setItem("theme", "light")),
-        set(theme);
-    </script>
-    <!--
-    <script>
-    function set(theme) {
-      let color = theme === "light" ? "#ffffff" : "#1A1B1E";
-      document.documentElement.style.backgroundColor = color;
-      document
-        .querySelector('meta[name="theme-color"]')
-        .setAttribute("content", color)
-    }
-
-    let theme = localStorage.getItem('theme')
-    if (theme !== "light" && theme !== "dark") {
-      theme = "light";
-      localStorage.setItem("theme", "light")
-    }
-    set(theme);
-  </script>
-  --></head>
-
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no" />
+    <title>Wander Client</title>
+  </head>
   <body>
-    <div aria-hidden="true" class="hidden" style="font-family: Rubik">
-      &nbsp;
-    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
