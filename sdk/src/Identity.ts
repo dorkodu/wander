@@ -1,4 +1,4 @@
-import { generatePrivateKey, getPublicKey } from "./commons/Crypto";
+import { UserIdentifier } from "./name/Name";
 
 export type ID = string | number | DID;
 
@@ -9,7 +9,7 @@ export type DID = {
 
 export interface User {
   id: ID;
-  names: Name[];
+  names: UserIdentifier[];
   publicKey: string;
   privateKey?: string;
 }
@@ -34,17 +34,8 @@ export type DIDDocument = {
   seed: string;
 };
 
-
 export type NewAccountInput = {
   username: string;
   email: string;
   password: string;
 };
-
-
-export function createAccount({ username, password, email }: NewAccountInput) {
-  //? generate new keys
-  let privateKey = generatePrivateKey() // `sk` is a hex string
-  let publicKey = getPublicKey(privateKey) // `pk` is a hex string
-}
-
