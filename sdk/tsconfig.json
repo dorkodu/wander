@@ -11,6 +11,10 @@
     "emitDeclarationOnly": true,
     "outDir": "lib",
     "rootDir": ".",
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
