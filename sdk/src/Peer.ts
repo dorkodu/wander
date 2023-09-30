@@ -1,26 +1,50 @@
+import { PermissionInfo } from "./Data";
 import { ID, User } from "./Identity";
 import { LoginCredientals, Session, login } from "./auth";
-import { sage } from '@dorkodu/sage';
+
+import * as Sage from '@/commons/Sage';
 
 interface PeerConfig {
   seeds?: string[];
+  logging: boolean;
+  cache: boolean;
+  podSchema: DefaultSchema
 }
 
-/**
- * TODO: implement client-server logic
- * ? data structures like sage classic
- * ? server communication
- * ? validation of types
- */
+export type WanderEventKind = string;
+
+export type WanderEvent = {
+  kind: WanderEventKind;
+  info: string | boolean | number | object;
+};
+
+type DefaultSchema = { resources: [] };
+
 export class Peer {
   public session: Session | null = null;
   private headers: Record<string, string> = {};
-  private sage = sage.use<Schema>();
+  
+  // TODO: add Sage types 
+  private sage: any;
+
+  private config: PeerConfig;
+
+  private callbacks: Record<WanderEventKind, Function> = {}
 
   private seeds: string[];
 
-  constructor({ seeds = [] }: PeerConfig) {
-    this.seeds = seeds;
+  constructor(config: PeerConfig) {
+    this.config = config;
+    this.seeds = config.seeds ?? [];
+    this.sage = Sage.use()
+  }
+
+  accessClaim(namespace: string, permisions: PermissionInfo) {}
+
+  cache(namespace: string) {}
+
+  on(eventName: WanderEventKind, callback: (event?: WanderEvent) => void) {
+
   }
 
   authenticate(who: LoginCredientals): boolean {
