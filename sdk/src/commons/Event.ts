@@ -35,16 +35,16 @@ export type EventTemplate<K extends number = Kind> = {
   kind: K;
   tags: string[][];
   content: string;
-  created_at: number;
+  createdAt: number;
 };
 
 export type UnsignedEvent<K extends number = Kind> = EventTemplate<K> & {
-  pubkey: string;
+  publicKey: string;
 };
 
 export type Event<K extends number = Kind> = UnsignedEvent<K> & {
   id: string;
-  sig: string;
+  signature: string;
 };
 
 export function getBlankEvent(): EventTemplate<Kind.Blank>;
@@ -54,7 +54,7 @@ export function getBlankEvent<K>(kind: K | Kind.Blank = Kind.Blank) {
     kind,
     content: "",
     tags: [],
-    created_at: 0,
+    createdAt: 0,
   };
 }
 
@@ -63,9 +63,9 @@ export function finishEvent<K extends number = Kind>(
   privateKey: string
 ): Event<K> {
   let event = t as Event<K>;
-  event.pubkey = getPublicKey(privateKey);
+  event.publicKey = getPublicKey(privateKey);
   event.id = getEventHash(event);
-  event.sig = getSignature(event, privateKey);
+  event.signature = getSignature(event, privateKey);
   return event;
 }
 
@@ -75,8 +75,8 @@ export function serializeEvent(event: UnsignedEvent<number>): string {
 
   return JSON.stringify([
     0,
-    event.pubkey,
-    event.created_at,
+    event.publicKey,
+    event.createdAt,
     event.kind,
     event.tags,
     event.content,
@@ -95,9 +95,9 @@ export function validateEvent<T>(event: T): event is T & UnsignedEvent<number> {
   if (!isRecord(event)) return false;
   if (typeof event.kind !== "number") return false;
   if (typeof event.content !== "string") return false;
-  if (typeof event.created_at !== "number") return false;
-  if (typeof event.pubkey !== "string") return false;
-  if (!event.pubkey.match(/^[a-f0-9]{64}$/)) return false;
+  if (typeof event.createdAt !== "number") return false;
+  if (typeof event.publicKey !== "string") return false;
+  if (!event.publicKey.match(/^[a-f0-9]{64}$/)) return false;
 
   if (!Array.isArray(event.tags)) return false;
   for (let i = 0; i < event.tags.length; i++) {
@@ -113,7 +113,7 @@ export function validateEvent<T>(event: T): event is T & UnsignedEvent<number> {
 
 export function verifySignature(event: Event<number>): boolean {
   try {
-    return schnorr.verify(event.sig, getEventHash(event), event.pubkey);
+    return schnorr.verify(event.signature, getEventHash(event), event.publicKey);
   } catch (err) {
     return false;
   }
