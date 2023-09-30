@@ -1,4 +1,10 @@
-export * from "./Wander.ts";
+export * from "./Peer";
+export * from "./Identity";
+export * from "./name/Name";
+export * from "./pod/Pod";
+export * from "./Seed";
+export * from "./Data";
+export * from "./Wander";
 
 /*
   export * from './references.ts'
