@@ -10,6 +10,8 @@ import {
 
 const APIUrl = "/api";
 
+import "@/lib/wander";
+
 async function main() {
   fetch(APIUrl)
     .then(function (response) {
@@ -29,15 +31,22 @@ async function main() {
     });
 }
 
-function buttonClear() {
+function Clear() {
   console.clear();
 }
+
+function Data() {}
 
 export default function Page() {
   return (
     <div>
       <Container size={1024} p={10}>
-        <Image src="/mindgarden_Brand.svg" h="auto" w={300} fit="contain" />
+        <Image
+          src="/mindgarden_Brand-White.svg"
+          h="auto"
+          w={300}
+          fit="contain"
+        />
         <Divider my={10} />
 
         <Title order={2} fw={800}>
@@ -45,15 +54,20 @@ export default function Page() {
         </Title>
         <Text>This is your own cute place on the Web.</Text>
 
-        <Group>
+        <Group my={10}>
           <Button size="md" onClick={main}>
             Request
           </Button>
 
-          <Button size="md" onClick={buttonClear} color="red">
+          <Button size="md" onClick={Clear} color="red">
             Clear
           </Button>
         </Group>
+
+        <Divider my={10} />
+        <Button size="md" onClick={Data} color="blue">
+          Data
+        </Button>
       </Container>
     </div>
   );

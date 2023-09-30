@@ -7,7 +7,7 @@ import { theme } from "./styles/theme.ts";
 
 export default function App() {
   return (
-    <MantineProvider theme={theme}>
+    <MantineProvider theme={theme} defaultColorScheme="dark">
       <Home />
     </MantineProvider>
   );

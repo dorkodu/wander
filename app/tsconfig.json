@@ -17,8 +17,19 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".", // This must be specified if "paths" is.
+
+    "paths": {
+      "@/*": ["./src/*"],
+      "@wander/sdk": ["../sdk/src"],
+      "@wander/pod": ["../pod/src"],
+      "@wander/seed": ["../pod/src"],
+      "@wander/docs": ["../docs"]
+    }
   },
-  "include": ["src"],
+
+  "include": ["src", "./src/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
