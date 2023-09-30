@@ -34,7 +34,9 @@ export function login(who: LoginCredientals): LoginAttempt {
   };
 }
 
-export function authUcan() {
+/*
+
+export async function authUcan() {
   
   // in-memory keypair
   const keypair = await UCAN.EdKeypair.create()
@@ -71,13 +73,13 @@ function verifyUcan () {
   const serviceDID = "did:key:zabcde..."
 
   // Generate a UCAN on one machine
-  const ucan = ucans.build({ ... })
+  const ucan = UCAN.build({})
 
   // encode the UCAN to send it over to another machine
-  const encoded = ucans.encode(ucan)
+  const encoded = UCAN.encode(ucan)
 
   // verify an invocation of a UCAN on another machine (in this example a service)
-  const result = await ucans.verify(encoded, {
+  const result = await UCAN.verify(encoded, {
     // to make sure we're the intended recipient of this UCAN
     audience: serviceDID,
     // A callback for figuring out whether a UCAN is known to be revoked
@@ -99,4 +101,6 @@ function verifyUcan () {
   } else {
     // Unauthorized
   }
-  }
+}
+
+*/

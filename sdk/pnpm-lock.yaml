@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@dorkodu/sage':
-    specifier: ^0.1.4
-    version: 0.1.4
   '@noble/curves':
     specifier: 1.0.0
     version: 1.0.0
@@ -29,6 +26,9 @@ dependencies:
   multiformats:
     specifier: ^12.0.1
     version: 12.0.1
+  zod:
+    specifier: ^3.22.2
+    version: 3.22.2
 
 devDependencies:
   '@types/node':
@@ -104,10 +104,6 @@ packages:
       chalk: 2.4.2
       js-tokens: 4.0.0
     dev: true
-
-  /@dorkodu/sage@0.1.4:
-    resolution: {integrity: sha512-OGOjnYSor47VClpLgZ72ybcQE7m8mN4DYbpEpqBH6xSO+ju11JDeVLshd6h2pArMpAGeK9TzjId2FpSBP2sQEA==}
-    dev: false
 
   /@esbuild/android-arm64@0.16.9:
     resolution: {integrity: sha512-ndIAZJUeLx4O+4AJbFQCurQW4VRUXjDsUvt1L+nP8bVELOWdmdCEOtlIweCUE6P+hU0uxYbEK2AEP0n5IVQvhg==}
@@ -2619,3 +2615,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod@3.22.2:
+    resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
+    dev: false
