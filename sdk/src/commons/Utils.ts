@@ -99,9 +99,9 @@ export function insertEventIntoDescendingList(
 
   if (end < 0) {
     position = 0;
-  } else if (event.created_at < sortedArray[end].created_at) {
+  } else if (event.createdAt < sortedArray[end].createdAt) {
     position = end + 1;
-  } else if (event.created_at >= sortedArray[start].created_at) {
+  } else if (event.createdAt >= sortedArray[start].createdAt) {
     position = start;
   } else
     while (true) {
@@ -110,9 +110,9 @@ export function insertEventIntoDescendingList(
         break;
       }
       midPoint = Math.floor(start + (end - start) / 2);
-      if (sortedArray[midPoint].created_at > event.created_at) {
+      if (sortedArray[midPoint].createdAt > event.createdAt) {
         start = midPoint;
-      } else if (sortedArray[midPoint].created_at < event.created_at) {
+      } else if (sortedArray[midPoint].createdAt < event.createdAt) {
         end = midPoint;
       } else {
         // aMidPoint === num
@@ -144,9 +144,9 @@ export function insertEventIntoAscendingList(
 
   if (end < 0) {
     position = 0;
-  } else if (event.created_at > sortedArray[end].created_at) {
+  } else if (event.createdAt > sortedArray[end].createdAt) {
     position = end + 1;
-  } else if (event.created_at <= sortedArray[start].created_at) {
+  } else if (event.createdAt <= sortedArray[start].createdAt) {
     position = start;
   } else
     while (true) {
@@ -155,9 +155,9 @@ export function insertEventIntoAscendingList(
         break;
       }
       midPoint = Math.floor(start + (end - start) / 2);
-      if (sortedArray[midPoint].created_at < event.created_at) {
+      if (sortedArray[midPoint].createdAt < event.createdAt) {
         start = midPoint;
-      } else if (sortedArray[midPoint].created_at > event.created_at) {
+      } else if (sortedArray[midPoint].createdAt > event.createdAt) {
         end = midPoint;
       } else {
         // aMidPoint === num
