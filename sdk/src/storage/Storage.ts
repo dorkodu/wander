@@ -7,7 +7,7 @@
   * Support SQLite as an adapter
   * Support in-memory as default
 */
-export class Storage {
-  
-  constructor() {}
-}
+
+export interface StorageInterface {}
+
+//? Add all shared types, constants, utility functions here.
