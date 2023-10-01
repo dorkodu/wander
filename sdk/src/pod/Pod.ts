@@ -1,28 +1,25 @@
-import { EventFeed } from "../commons/Event";
-import { Account, Entity, Schema, User } from "../Wander";
-import { DataStore } from "./DataStore";
-
-export interface PodInterface {
-  account: Account;
-  context: Context;
-  store: DataStore;
-  feed: EventFeed;
-}
+import { PermissionInfo } from '@/Data';
+import { EventFeed } from "@/commons/Event";
+import { DataStore } from "@/pod/DataStore";
+import { User } from '@/Identity';
 
 export class Pod implements PodInterface {
-  public account: Account;
-  public context: Context;
+  public owner: User;
+  public context: Record<string, any>;
   public store: DataStore;
   public feed: EventFeed;
 
-  constructor({ account, context = {}, feed, store }: PodInterface) {
-    this.account = account;
+  constructor({ owner, context = {}, feed, store }: PodInterface) {
+    this.owner = owner;
     this.context = context;
     this.store = store;
     this.feed = feed;
   }
 }
 
-//? some necesssary but temporary type definitions
-export type Context = Record<string, any>;
- 
+export interface PodInterface {
+  owner: User;
+  context: Record<string, any>;
+  store: DataStore;
+  feed: EventFeed;
+}

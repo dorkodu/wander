@@ -1,6 +1,6 @@
 import { UserIdentifier } from "./name/Name";
 
-export type ID = string | number | DID;
+export type ID = string | number | DID | CID;
 
 export type DID = {
   method: string;
@@ -8,19 +8,12 @@ export type DID = {
 };
 
 export interface User {
-  id: ID;
+  publicKey: string; // Default Identifier for a User
   names: UserIdentifier[];
-  publicKey: string;
-  privateKey?: string;
+  privateKey?: string; // Not required always
+  password?: string; // Not required always
 }
 
-export type Account = {
-  user: User;
-  permissions: AccountPermissions;
-  knownAs: string;
-};
-
-export type AccountPermissions = any;
 export type DecentralizedUsername = string;
 
 export type CID = {
@@ -35,7 +28,6 @@ export type DIDDocument = {
 };
 
 export type NewAccountInput = {
-  username: string;
   email: string;
   password: string;
 };

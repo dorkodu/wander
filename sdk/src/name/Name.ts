@@ -28,7 +28,20 @@ export const NSID = {
   },
 };
 
-export type UserIdentifier = WebName | EmailName | PublicKey;
-export type WebName = string;
-export type EmailName = string;
 export type PublicKey = string;
+
+export enum NameKind {
+  Web,
+  Email,
+  Display,
+  DID
+}
+
+export interface Name {
+  kind: NameKind,
+  value: string;
+}
+
+
+
+export type UserIdentifier = Name | PublicKey;

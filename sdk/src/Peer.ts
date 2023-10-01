@@ -1,20 +1,22 @@
 import { PermissionInfo } from "./Data";
 import { ID, User } from "./Identity";
 import { LoginCredientals, Session, login } from "./auth";
-
-import * as Sage from '@/commons/Sage';
+import { Space } from "./storage/Space";
 
 interface PeerConfig {
   seeds?: string[];
-  logging: boolean;
-  cache: boolean;
-  podSchema: DefaultSchema
+  logging?: boolean;
+  cache?: boolean;
 }
 
-export type WanderEventKind = string;
+interface PeerState extends PeerConfig {
+  spaces: Space[];
+}
 
-export type WanderEvent = {
-  kind: WanderEventKind;
+type EventKind = string;
+
+type Event = {
+  kind: EventKind;
   info: string | boolean | number | object;
 };
 
@@ -24,28 +26,31 @@ export class Peer {
   public session: Session | null = null;
   private headers: Record<string, string> = {};
   
-  // TODO: add Sage types 
-  private sage: any;
-
   private config: PeerConfig;
-
-  private callbacks: Record<WanderEventKind, Function> = {}
+  private callbacks: Record<EventKind, Function> = {}
+  
+  private state: PeerState;
 
   private seeds: string[];
 
   constructor(config: PeerConfig) {
     this.config = config;
     this.seeds = config.seeds ?? [];
-    this.sage = Sage.use()
   }
 
   accessClaim(namespace: string, permisions: PermissionInfo) {}
 
   cache(namespace: string) {}
 
-  on(eventName: WanderEventKind, callback: (event?: WanderEvent) => void) {
+  on(eventName: EventKind, callback: (event?: Event) => void) {
 
   }
+  
+  addSpace(space: {name: string;}) {}
+
+  space(name: string) {}
+
+  async storeFile({ type, name, content }: { type: string, name: string, content: string }) {}
 
   authenticate(who: LoginCredientals): boolean {
     // try to create a session

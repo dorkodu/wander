@@ -1,21 +1,48 @@
+import { sha256 } from "@noble/hashes/sha256";
 import { Document, DocumentTemplate } from "./Data";
-import { NewAccountInput } from "./Identity";
-import { generatePrivateKey, getPublicKey } from "./commons/Crypto";
+import { Account, NewAccountInput, User } from "./Identity";
+import { createKeyPair, generatePrivateKey, getPublicKey, passwordHash } from "./commons/Crypto";
 import { Event, EventTemplate, UnsignedEvent, getEventHash, getSignature, validateEvent, verifySignature } from "./commons/Event";
-
+import { randomBytes } from "@noble/hashes/utils";
+import { EmailName, UserIdentifier } from "./name/Name";
+import { Pod } from "./pod/Pod";
 
 export function createDocument({}: DocumentTemplate): Document {
+  return { block: "", content: "", meta: {}, owner: "", pathName: "" }
+}
 
+export function createEmptyDocument({}: DocumentTemplate): Document {
+  return { block: "", content: "", meta: {}, owner: "", pathName: "" }
 }
 
 export function createSchema({}:{}) {
   
 }
 
-export function createAccount({ username, password, email }: NewAccountInput) {
+export function createPod({ user }: { user: User }): Pod {
+  const pod = new Pod({});
+
+  return pod;
+}
+
+export function createUser({ email, password }: NewAccountInput): User {
   //? generate new keys
-  let privateKey = generatePrivateKey() // `sk` is a hex string
-  let publicKey = getPublicKey(privateKey) // `pk` is a hex string
+  let { privateKey, publicKey } = createKeyPair();
+
+  const salt = randomBytes(16).toString();
+  
+  const hashedPassword = passwordHash(password, salt);
+  
+  const emailName: EmailName = email;
+
+  return {
+    privateKey,
+    publicKey,
+    password: hashedPassword,
+    names: [
+      email,
+    ]
+  }
 }
 
 export function createEvent(eventTemplate: EventTemplate) {
