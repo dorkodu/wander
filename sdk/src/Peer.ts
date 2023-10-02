@@ -1,16 +1,11 @@
 import { PermissionInfo } from "./Data";
 import { ID, User } from "./Identity";
 import { LoginCredientals, Session, login } from "./auth";
-import { Space } from "./storage/Space";
 
 interface PeerConfig {
   seeds?: string[];
   logging?: boolean;
   cache?: boolean;
-}
-
-interface PeerState extends PeerConfig {
-  spaces: Space[];
 }
 
 type EventKind = string;
@@ -20,7 +15,25 @@ type Event = {
   info: string | boolean | number | object;
 };
 
-type DefaultSchema = { resources: [] };
+export const PeerEventKinds = [
+  // PEER -----------------
+  "peer:ready",
+  "peer:anonymous",
+  "peer:connected",
+  "peer:disconnected",
+  "peer:connecting",
+  "peer:authing",
+  "peer:network-online",
+  // NETWORK --------------
+  "network:busy",
+  "network:online",
+  "network:offline",
+  // SYNC -----------------
+  "sync:doing",
+  "sync:done",
+  "sync:error",
+  // SYNC -----------------
+]
 
 export class Peer {
   public session: Session | null = null;
@@ -28,8 +41,6 @@ export class Peer {
   
   private config: PeerConfig;
   private callbacks: Record<EventKind, Function> = {}
-  
-  private state: PeerState;
 
   private seeds: string[];
 

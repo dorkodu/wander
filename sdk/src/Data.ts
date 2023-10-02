@@ -23,6 +23,7 @@ export interface Document {
   pathName: string;
   owner: UserIdentifier;
   meta: Record<string, string>;
+  attributes: Attribute<T>;
   content: string;
 }
 

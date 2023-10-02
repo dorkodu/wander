@@ -2,7 +2,6 @@
 
 import * as Wander from "@wander/sdk";
 
-
 export const peer = new Wander.Peer({ seeds: [], logging: true, cache: false });
 
 peer.accessClaim('myfavoritedrinks', [{ who: "", read: true, write: true }]);
@@ -23,9 +22,6 @@ peer.on('network-online', () => {
 });
 
 const document = Wander.createDocument({});
-
-
-
 
 const account = Wander.createAccount({ email: "doruk@dorkodu.com", password: "wishyouwerehere", username: "@dorukeray" });
 
@@ -54,7 +50,7 @@ const account = Wander.createAccount({ email: "doruk@dorkodu.com", password: "wi
 
  */
 
-const client = peer.scope('/foo/');
+const client = peer.space('/foo/');
 
 // List all items in the "foo/" category/folder
 client.getListing('')
@@ -67,28 +63,11 @@ client.storeFile('text/plain', 'bar.txt', content)
 
 const Bookmarks = { 
   name: 'bookmarks', 
+  types: {
+    "Bookmark": 
+  }
   builder: function(privateClient, publicClient) {
 
-    privateClient.declareType('archive-bookmark', {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "tags": {
-          "type": "array",
-          "default": []
-        },
-      },
-      "required": [ "title", "url" ]
-    });
 
     return {
       exports: {
@@ -106,8 +85,7 @@ const Bookmarks = {
     }
 }};
 
-peer.addModule(Bookmarks);
-peer.bookmarks.addBookmark();
+peer.space("bookmark").addBookmark();
 
 peer.bookmarks.add({
   title: 'Unhosted Web Apps',
