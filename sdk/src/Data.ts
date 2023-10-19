@@ -33,7 +33,9 @@ export interface Attribute<T> {
   data: T;
 }
 
-export enum BlockKind {}
+export enum BlockKind {
+  
+}
 
 export interface Block {
   cid: string;
@@ -44,8 +46,7 @@ export interface Block {
   owner: UserIdentifier;
   timestamp: TimeStamp;
   permissions: PermissionInfo;
-
-  data: FreeFormData;
+  data: CID;
 }
 
 export type Method<TInput, TOutput> = {

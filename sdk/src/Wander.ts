@@ -7,8 +7,8 @@ import { randomBytes } from "@noble/hashes/utils";
 import { EmailName, UserIdentifier } from "./name/Name";
 import { Pod } from "./pod/Pod";
 
-export function createDocument({}: DocumentTemplate): Document {
-  return { block: "", content: "", meta: {}, owner: "", pathName: "" }
+export function createDocument({ meta, content, owner, pathName, attributes }: DocumentTemplate): Document {
+  return { block: "", content: "", meta: {}, owner: "", pathName: "", attributes: {} }
 }
 
 export function createEmptyDocument({}: DocumentTemplate): Document {
