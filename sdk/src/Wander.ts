@@ -1,17 +1,17 @@
 import { sha256 } from "@noble/hashes/sha256";
 import { Document, DocumentTemplate } from "./Data";
-import { Account, NewAccountInput, User } from "./Identity";
+import { NewAccountInput, User } from "./Identity";
 import { createKeyPair, generatePrivateKey, getPublicKey, passwordHash } from "./commons/Crypto";
 import { Event, EventTemplate, UnsignedEvent, getEventHash, getSignature, validateEvent, verifySignature } from "./commons/Event";
 import { randomBytes } from "@noble/hashes/utils";
-import { EmailName, UserIdentifier } from "./name/Name";
+import { UserIdentifier } from "./name/Name";
 import { Pod } from "./pod/Pod";
 
 export function createDocument({ meta, content, owner, pathName, attributes }: DocumentTemplate): Document {
   return { block: "", content: "", meta: {}, owner: "", pathName: "", attributes: {} }
 }
 
-export function createEmptyDocument({}: DocumentTemplate): Document {
+export function createEmptyDocument({ }: DocumentTemplate): Document {
   return { block: "", content: "", meta: {}, owner: "", pathName: "" }
 }
 

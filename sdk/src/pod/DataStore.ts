@@ -1,4 +1,4 @@
-import { Block, Document, Schema } from "@/Data";
+import { Entity, Document, Schema } from "@/Data";
 import { CID, User } from "@/Identity";
 
 import { StorageInterface } from "@/storage/Storage";
@@ -10,7 +10,7 @@ export class DataStore {
     this.storage = storage;
   }
 
-  create(document: Document): Block {}
+  create(document: Document): Entity {}
   read(cid: CID) {}
   update(cid: CID, mutation: (old: Document) => Document) {}
   delete(cid: CID) {}

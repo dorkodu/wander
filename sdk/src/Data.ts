@@ -16,18 +16,20 @@ export type EntityType = string;
 
 export type TimeStamp = number;
 
-export interface DocumentTemplate {}
+export interface DocumentTemplate {
 
-export interface Document {
-  block: ID;
+}
+
+export interface Document<TAttributes = {}> {
+  entity: Entity | CID;
   pathName: string;
   owner: UserIdentifier;
   meta: Record<string, string>;
-  attributes: Attribute<T>;
+  attributes: Attribute<TAttributes>;
   content: string;
 }
 
-export interface Attribute<T> {
+export interface Attribute<T = string> {
   name: string;
   description?: string;
   data: T;
@@ -37,8 +39,8 @@ export enum BlockKind {
   
 }
 
-export interface Block {
-  cid: string;
+export interface Entity {
+  cid: CID;
   did: DID;
   parent?: CID;
   hash: string;
