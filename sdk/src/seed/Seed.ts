@@ -1,4 +1,4 @@
-import { Schema } from "./Data";
+import { Schema } from "../commons/Data";
 
 export type SeedID = string;
 

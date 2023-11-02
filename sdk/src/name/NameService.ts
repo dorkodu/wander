@@ -1,4 +1,4 @@
-import { CID } from "../Identity";
+import { CID } from "../commons/Identity";
 
 import { PublicKey } from "./Name";
 

@@ -1,6 +1,6 @@
 import * as UCAN from "@ucans/ucans"
 
-import { User } from "../Identity";
+import { User } from "../commons/Identity";
 
 export type Session = {
   user: User;

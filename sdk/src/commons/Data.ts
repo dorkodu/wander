@@ -1,6 +1,6 @@
 import { Serializable } from "child_process";
 import { CID, DID, ID, User } from "./Identity";
-import { PublicKey, UserIdentifier } from "./name/Name";
+import { PublicKey, UserIdentifier } from "../name/Name";
 
 export type Hash = string;
 

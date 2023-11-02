@@ -1,6 +1,6 @@
 import { sha256 } from "@noble/hashes/sha256";
-import { Document, DocumentTemplate } from "./Data";
-import { NewAccountInput, User } from "./Identity";
+import { Document, DocumentTemplate } from "./commons/Data";
+import { NewAccountInput, User } from "./commons/Identity";
 import { createKeyPair, generatePrivateKey, getPublicKey, passwordHash } from "./commons/Crypto";
 import { Event, EventTemplate, UnsignedEvent, getEventHash, getSignature, validateEvent, verifySignature } from "./commons/Event";
 import { randomBytes } from "@noble/hashes/utils";

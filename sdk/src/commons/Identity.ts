@@ -1,4 +1,4 @@
-import { UserIdentifier } from "./name/Name";
+import { UserIdentifier } from "../name/Name";
 
 export type ID = string | number | DID | CID;
 
