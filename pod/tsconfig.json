@@ -1,23 +1,32 @@
 {
   "compilerOptions": {
+    // add Bun type definitions
+    "types": ["bun-types"],
+
+    // enable latest features
+    "lib": ["ESNext"],
+    "module": "esnext",
+    "target": "esnext",
+
+    // if TS 5.x+
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    // if TS 4.x or earlier
+    // "moduleResolution": "nodenext",
+
+    "jsx": "react-jsx", // support JSX
+    "allowJs": true, // allow importing `.js` from `.ts`
+
+    // best practices
     "strict": true,
-    "alwaysStrict": true,
-    "allowUnreachableCode": false,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "esModuleInterop": true,
-
-    "outDir": "./dist",
-    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
+    "composite": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
 
-    "paths": {
-      //"@core/*": ["../core/src/*"],
-    }
-  },
-  "include": ["./src/**/*", "index.ts"]
+    "removeComments": true
+  }
 }

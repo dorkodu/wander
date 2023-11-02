@@ -1,38 +1,14 @@
-import express from "express";
-import cookieParser from "cookie-parser";
+/// <reference lib="dom" />
+/// <reference lib="dom.iterable" />
 
-import { config } from "./src/config";
+import figlet from "figlet";
 
-async function main() {
-  const app = express();
+const server = Bun.serve({
+  fetch() {
+    const body = figlet.textSync("Bun!");
+    return new Response(body);
+  },
+  port: 3000,
+});
 
-  app.set("trust proxy", true);
-  app.disable('x-powered-by');
-  app.use(express.json());
-  app.use(cookieParser());
-
-  app.use("/api", async (_req, res, _next) => {
-    
-    const requestHeaders = _req.headers;
-    const query: any = {};
-    const result: any = {};
-
-    const response: any = {
-      request: requestHeaders,
-      query,
-      response: result,
-    };
-    
-    res.status(200)
-    .contentType("JSON")
-    .send(JSON.stringify(response));
-  });
-
-  app.get("/", async (_req, res, _next) => {
-    res.status(200).send("Hello World!");
-  })
-
-  app.listen(config.port, () => { console.log(`Server has started on port ${config.port}`) });
-}
-
-main();
+console.log(`Listening on http://localhost:${server.port} ...`);
