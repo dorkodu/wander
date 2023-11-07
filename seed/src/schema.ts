@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { sage } from "@sage/sage";
+import { sage } from "@dorkodu/sage";
 import { types } from "./types";
 import { query } from "./query";
 import { IBlog, IUser } from "./data";
@@ -148,6 +148,7 @@ const likeBlog = sage.resource(
 )
 
 export type Schema = typeof schema;
+
 export const schema = sage.schema(
   {} as Context,
   {

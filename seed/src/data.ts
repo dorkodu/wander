@@ -2,71 +2,27 @@
  * Type of the "session" table in a SQL database.
  */
 export interface ISession {
-  // In a SQL database, this would be the primary key of the "session" table.
   id: number;
-
-  // User id corresponding to the session.
   userId: number;
-
-  // JWT or hash of the session. In a normal app, this would be stored in browser cookies of the user.
   token: string;
 }
 
 // Type of the "user" table in a SQL database.
 export interface IUser {
-  /**
-   * In a SQL database, this would be the primary key of the "user" table.
-   */
   id: number;
-
-  /**
-   * Username of the user.
-   */
   username: string;
 }
 
-/**
- * Type of the "blog" table in a SQL database.
- */
 export interface IBlog {
-  /**
-   * In a SQL database, this would be the primary key of the "blog" table.
-   */
   id: number;
-
-  /**
-   * Id of the user that created the blog.
-   */
   userId: number;
-
-  /**
-   * Text content of the blog.
-   */
   content: string;
-
-  /**
-   * Like count of the blog.
-   */
   likeCount: number;
 }
 
-/**
- * Type of the "like" table in a SQL database.
- */
 export interface ILike {
-  /**
-   * In a SQL database, this would be the primary key of the "like" table.
-   */
   id: number;
-
-  /**
-   * Id of the user that liked a blog.
-   */
   userId: number;
-
-  /**
-   * Id of the blog that is liked.
-   */
   blogId: number;
 }
 
@@ -136,43 +92,12 @@ const likes: Array<ILike> = [
  * Example database data, as we don't have a SQL database running here.
  */
 export const data = {
-  /**
-   * Session data.
-   */
   sessions,
-  
-  /**
-   * User data.
-   */
   users,
-
-  /**
-   * Blog data.
-   */
   blogs,
-
-  /**
-   * Like data.
-   */
   likes,
-
-  /**
-   * The auto-increment primary key of the "session" table.
-   */
   sessionsIndex,
-
-  /**
-   * The auto-increment primary key of the "user" table.
-   */
   usersIndex,
-
-  /**
-   * The auto-increment primary key of the "blog" table.
-   */
   blogsIndex,
-
-  /**
-   * The auto-increment primary key of the "like" table.
-   */
   likesIndex,
 }
