@@ -1,10 +1,10 @@
-# NIP-45
+# WANDER-21
 
-## Stats
+## Query
 
-`draft` `optional` `author:staab`
+`draft` `optional` `author:doruk@dorkodu.com`
 
-Relays may support the verb `COUNT`, which provides a mechanism for obtaining event counts.
+Seeds may support the verb `QUERY`, which provides a mechanism for obtaining data or stats for a given query.
 
 ## Motivation
 
