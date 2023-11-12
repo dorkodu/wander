@@ -1,29 +1,36 @@
-# NIP-01
+# WANDER-00
 
-## Basic protocol flow description
+## Basic Protocol Flow Description
 
-`draft` `mandatory` `author:fiatjaf` `author:distbit` `author:scsibug` `author:kukks` `author:jb55` `author:semisol` `author:cameri` `author:Giszmo`
+`draft` `mandatory` `author:doruk@dorkodu.com`
 
 This NIP defines the basic protocol that should be implemented by everybody. New NIPs may add new optional (or mandatory) fields and messages and features to the structures and flows described here.
 
-## Events and signatures
+## Users and Signatures
 
-Each user has a keypair. Signatures, public key, and encodings are done according to the [Schnorr signatures standard for the curve `secp256k1`](https://bips.xyz/340).
+Each user has a keypair.
 
-The only object type that exists is the `event`, which has the following format on the wire:
+Signatures, public key, and encodings are done according to the [Schnorr signatures standard for the curve `secp256k1`](https://bips.xyz/340).
 
-```json
-{
-  "id": <32-bytes lowercase hex-encoded sha256 of the serialized event data>,
-  "pubkey": <32-bytes lowercase hex-encoded public key of the event creator>,
-  "created_at": <unix timestamp in seconds>,
-  "kind": <integer between 0 and 65535>,
-  "tags": [
-    [<arbitrary string>...],
+## Data Types
+
+Just 2 types of data exist. Objects are first citizen, everything is an object.
+
+First one is the `event`, which has the following format on the wire:
+
+```ts
+
+interface Wander.Event {
+  id: <32-bytes lowercase hex-encoded sha256 of the serialized event data>,
+  author: <32-bytes lowercase hex-encoded public key of the event creator>,
+  createdAt: <unix timestamp in seconds>,
+  kind: <integer between 0 and 65535>,
+  tags: [
+    [<arbitrary string> ...],
     ...
-  ],
-  "content": <arbitrary string>,
-  "sig": <64-bytes lowercase hex of the signature of the sha256 hash of the serialized event data, which is the same as the "id" field>
+  ]
+  content: <arbitrary string>
+  sig: <64-bytes lowercase hex of the signature of the sha256 hash of the serialized event data, which is the same as the "id" field>
 }
 ```
 
