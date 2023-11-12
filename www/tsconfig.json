@@ -17,8 +17,18 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "#/*": ["./src/*"]
+    },
+
+    "types": ["vite/client"],
+
+    "esModuleInterop": true
   },
-  "include": ["src"],
+
+  "include": ["src", "src/renderer"],
+
   "references": [{ "path": "./tsconfig.node.json" }]
 }
