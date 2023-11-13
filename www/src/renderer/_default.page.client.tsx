@@ -21,7 +21,7 @@ import { App } from "./App";
 //? ************** RENDER **************
 
 import ReactDOM from "react-dom/client";
-import { getPageTitle } from "./getMetadata";
+import { getMetadata } from "./getMetadata";
 import type { OnRenderClientAsync } from "vike/types";
 
 let root: ReactDOM.Root;
@@ -45,7 +45,8 @@ const render: OnRenderClientAsync = async (
     }
     root.render(page);
   }
-  document.title = getPageTitle(pageContext);
+
+  document.title = getMetadata(pageContext).title;
 };
 
 //? ************** Page Animations **************

@@ -1,4 +1,6 @@
-export { Page, meta };
+import { Container, Text, Title } from "@mantine/core";
+
+export { Page, meta as documentProps };
 
 const meta = {
   title: "About",
@@ -7,9 +9,9 @@ const meta = {
 
 function Page() {
   return (
-    <div>
-      <h1>About</h1>
-      <p>This is about.</p>
-    </div>
+    <Container>
+      <Title>About</Title>
+      <Text>This is about.</Text>
+    </Container>
   );
 }

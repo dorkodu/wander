@@ -16,8 +16,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
-    "@tabler/icons-react": "^2.30.0",
-    "react-streaming": "^0.3.9"
+    "@tabler/icons-react": "^2.30.0"
   },
   "devDependencies": {
     "@types/identicon.js": "^2.3.1",
@@ -39,6 +38,7 @@
     "vite": "^4.3.9",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-html": "^3.2.0",
-    "vite-plugin-pwa": "^0.16.4"
+    "vite-plugin-pwa": "^0.16.4",
+    "react-streaming": "^0.3.9"
   }
 }
