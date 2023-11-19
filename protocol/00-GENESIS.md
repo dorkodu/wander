@@ -4,9 +4,11 @@
 
 `draft` `mandatory` `author:doruk@dorkodu.com`
 
-This NIP defines the basic protocol that should be implemented by everybody. New NIPs may add new optional (or mandatory) fields and messages and features to the structures and flows described here.
+This document defines the basic protocol that should be implemented by everybody. 
 
-## Users and Signatures
+New NIPs may add new optional (or mandatory) fields, types, messages and features to the structures and flows described here.
+
+## Users & Signatures
 
 Each user has a keypair.
 
@@ -14,9 +16,43 @@ Signatures, public key, and encodings are done according to the [Schnorr signatu
 
 ## Data Types
 
-Just 2 types of data exist. Objects are first citizen, everything is an object.
+Just 2 types of data exist. **<u>Documents</u>** and **<u>Events</u>**.
 
-First one is the `event`, which has the following format on the wire:
+1. **<u>Documents</u>** are...
+
+   - objects types which store semantic data.
+   - owned and signed by a **<u>User</u>**.
+   - stored locally/remote in **<u>Pods</u>**.
+   - passed through **<u>Peers</u>** on the network for communication. 
+   - what enables the network to have a **universal knowledge graph**.
+
+   ```ts
+   interface Wander.Document {
+     id: string // 32-bytes lowercase hex-encoded sha256 of the serialized document data
+     author: string // 32-bytes lowercase hex-encoded public key of the event creator
+     event: EventID || Wander.Event // Event which is the reason for the creation of this document.
+     meta: Record<string, any> // A simple key-value map for headers and any metadata.
+     data: CID // IPFS CID hash 
+     sig: string, // 64-bytes lowercase hex of the signature of the sha256 hash of the serialized data
+   }
+   ```
+
+   **<u>Attributes</u>**
+
+   - **Signed**: UCAN-authorized key.
+   - **Versioned**: Trace entire history of the data.
+   - **Decentralized**: Lives on a distributed network of peers and seeds, also on IPFS + Nostr.
+   - **Open-ended**: any kind of data, schema-able, with free form metadata.
+   - **Reusable & Composable**: Built on IPLD/Multiformats.
+
+2. **<u>Events</u>** are...
+
+   - objects types which store information about some action.
+   - owned and signed by a **<u>User</u>**.
+   - stored locally/remote in **<u>Pods</u>**.
+   - passed through **<u>Peers</u>** on the network for communication. 
+   - what enables the network to have an asynchronous global state.
+   - **fully-compatible with <u>Nostr</u>.**
 
 ```ts
 
@@ -97,9 +133,13 @@ When answering to `REQ` messages for replaceable events such as `{"kinds":[0],"a
 
 These are just conventions and relay implementations may differ.
 
-## Communication between clients and relays
+## Pods
 
-Relays expose a websocket endpoint to which clients can connect. Clients SHOULD open a single websocket connection to each relay and use it for all their subscriptions. Relays MAY limit number of connections from specific IP/client/etc.
+
+
+## Communication between clients and seeds
+
+Seeds expose a websocket endpoint to which clients can connect. Clients SHOULD open a single websocket connection to each relay and use it for all their communications. Relays MAY limit number of connections from specific IP/client/etc.
 
 ### Meaning of WebSocket status codes
 

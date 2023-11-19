@@ -29,3 +29,4 @@ private key (hex): c15d739894c81a2fcfd3a2df85a0d2c0dbc47a280d092799f144d73d7ae78
 nsec: nsec1c9wh8xy5eqdzln7n5t0ctgxjcrdug73gp5yj0x03gntn67h83twssdfhel\
 public key (hex): d41b22899549e1f3d335a31002cfd382174006e166d3e658e3a5eecdb6463573\
 npub: npub16sdj9zv4f8sl85e45vgq9n7nsgt5qphpvmf7vk8r5hhvmdjxx4es8rq74h
+
