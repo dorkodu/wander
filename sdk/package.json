@@ -1,16 +1,31 @@
 {
   "name": "@dorkodu/wander",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "Decentralized Social Knowledge Protocol",
+  "author": "@dorukeray",
+  "keywords": [
+    "wander",
+    "socialnetworking",
+    "WebCrypto",
+    "auth",
+    "semantic",
+    "distributed",
+    "p2p",
+    "DAG",
+    "DID",
+    "IPFS",
+    "IPLD",
+    "UCAN"
+  ],
+  "license": "MIT",
+  "homepage": "https://wander.dorkodu.com",
+  "main": "src/index.ts",
+  "type": "module",
   "scripts": {
     "build": "node build",
     "format": "prettier --plugin-search-dir . --write .",
     "test": "vitest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@ipld/dag-cbor": "^9.0.6",
     "@ipld/dag-json": "^10.1.5",
@@ -19,9 +34,11 @@
     "@scure/base": "1.1.1",
     "@scure/bip32": "1.3.0",
     "@scure/bip39": "1.2.0",
-    "@ucans/ucans": "^0.11.4",
+    "idb": "^7.1.1",
+    "keystore-idb": "^0.15.5",
     "multiformats": "^12.1.3",
-    "zod": "^3.22.2"
+    "uint8arrays": "^4.0.6",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^18.13.0",

@@ -1,4 +1,6 @@
-# Wander Protocol
+
+
+# Wander
 
 Wander is a decentralized social knowledge protocol.
 
