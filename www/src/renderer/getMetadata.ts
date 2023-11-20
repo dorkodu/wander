@@ -1,4 +1,3 @@
-
 const DEFAULT_TITLE = 'Wander';
 const DEFAULT_DESC = 'Social and Decentralized Knowledge of the Humankind.';
 
@@ -13,7 +12,6 @@ export function getMetadata(pageContext: {
     // For dynamic titles (defined in the `export addContextProps()` of the page's `.page.server.js`)
     (pageContext.documentProps || {}).title ||
     DEFAULT_TITLE;
-
 
   const description = 
     (pageContext.exports.documentProps || {}).description ||

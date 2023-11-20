@@ -1,6 +1,8 @@
 import React from "react";
 import { PageContextProvider } from "./usePageContext";
 
+import "@mantine/core/styles.css";
+
 import { theme } from "#/styles/theme";
 
 //? Layouts
