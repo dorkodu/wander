@@ -1,8 +1,6 @@
-import { arrbufs } from "../common/index.js"
-
+import { arrbufs } from "@/commons/index"
 
 export const BASE58_DID_PREFIX = "did:key:z"
-
 
 /**
  * Determines if an ArrayBuffer has a given indeterminate length-prefix.

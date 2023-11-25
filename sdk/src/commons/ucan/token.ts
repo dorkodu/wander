@@ -1,11 +1,10 @@
 import * as Uint8arrays from "uint8arrays"
 
-import * as Crypto from "../components/crypto/implementation.js"
+import { CryptoInterface } from "@/commons/crypto/interface"
 
-import { Potency, Fact, Resource, Ucan, UcanHeader, UcanPayload } from "./types.js"
-import { base64 } from "../common/index.js"
-import { didToPublicKey } from "../did/transformers.js"
-
+import { Potency, Fact, Resource, Ucan, UcanHeader, UcanPayload } from "./types"
+import { base64 } from "@/commons/index"
+import { didToPublicKey } from "../did/transformers"
 
 /**
  * Create a UCAN, User Controlled Authorization Networks, JWT.
@@ -42,7 +41,7 @@ export async function build({
 }: {
   addSignature?: boolean
   audience: string
-  dependencies: { crypto: Crypto.Implementation }
+  dependencies: { crypto: CryptoInterface }
   facts?: Array<Fact>
   issuer: string
   lifetimeInSeconds?: number
@@ -169,7 +168,7 @@ export function isSelfSigned(ucan: Ucan): boolean {
  * @param ucan The decoded UCAN
  * @param did The DID associated with the signature of the UCAN
  */
-export async function isValid(crypto: Crypto.Implementation, ucan: Ucan): Promise<boolean> {
+export async function isValid(crypto: CryptoInterface, ucan: Ucan): Promise<boolean> {
   try {
     const encodedHeader = encodeHeader(ucan.header)
     const encodedPayload = encodePayload(ucan.payload)
@@ -218,7 +217,7 @@ export function rootIssuer(ucan: string | Ucan, level = 0): string {
  * Generate UCAN signature.
  */
 export async function sign(
-  crypto: Crypto.Implementation,
+  crypto: CryptoInterface,
   header: UcanHeader,
   payload: UcanPayload
 ): Promise<string> {

@@ -1,2 +1,2 @@
-export * from "./local.js"
-export * from "./transformers.js"
+export * from "./local"
+export * from "./transformers"

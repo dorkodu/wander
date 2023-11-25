@@ -1,8 +1,7 @@
 import * as uint8arrays from "uint8arrays"
-import * as Crypto from "../components/crypto/implementation.js"
+import * as Crypto from "@/commons/crypto/interface"
 
-import { BASE58_DID_PREFIX, hasPrefix } from "./util.js"
-
+import { BASE58_DID_PREFIX, hasPrefix } from "./util"
 
 /**
  * Convert a base64 public key to a DID (did:key).

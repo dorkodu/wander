@@ -1,7 +1,6 @@
-import * as Crypto from "../components/crypto/implementation.js"
+import * as Crypto from "@/commons/crypto/interface"
 
-import { publicKeyToDid } from "./transformers.js"
-
+import { publicKeyToDid } from "./transformers"
 
 /**
  * Create a DID based on the exchange key-pair.
