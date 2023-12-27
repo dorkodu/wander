@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -19,17 +20,19 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "baseUrl": ".", // This must be specified if "paths" is.
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
 
     "paths": {
-      "#/*": ["./src/*"],
-      "@wander/sdk": ["../sdk/src"],
-      "@wander/pod": ["../pod/src"],
-      "@wander/seed": ["../pod/src"],
-      "@wander/docs": ["../docs"]
+      "@api/*": ["../api/src/*"],
+      "@sdk/*": ["../sdk/src/*"],
+      "#/*": ["./src/*"]
     }
   },
-
-  "include": ["src", "./src/**/*"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

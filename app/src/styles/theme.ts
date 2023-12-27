@@ -1,23 +1,46 @@
-import { createTheme, rem } from "@mantine/core";
-import { themeToVars } from "@mantine/vanilla-extract";
+import {
+  Anchor,
+  Button,
+  Title,
+  createTheme,
+  useMantineColorScheme,
+} from '@mantine/core'
+import { themeToVars } from '@mantine/vanilla-extract'
 
 export const theme = createTheme({
-  colors: {},
-  shadows: {},
-  headings: {},
+  primaryColor: 'green',
+  defaultRadius: 'md',
+  cursorType: 'pointer',
 
-  primaryShade: 7,
+  fontFamily: 'Rubik, Roboto, sans-serif',
+  fontFamilyMonospace: 'JetBrains Mono, Fira Code, monospace',
 
-  respectReducedMotion: true,
+  components: {
+    Anchor: Anchor.extend({
+      styles: (theme) => ({
+        root: {
+          color: theme.colors.blue[6],
+          fontWeight: 450
+        },
+      }),
+    }),
+    Title: Title.extend({
+      styles: (theme) => ({
+        root: {
+          color: useThemed({ light: theme.black, dark: theme.white }),
+        },
+      }),
+    }),
+    Button: Button.extend({
+      defaultProps: {
+        radius: 'lg',
+      },
+    }),
+  },
+})
 
-  primaryColor: "green",
-  defaultRadius: "md",
-  cursorType: "pointer",
-  focusRing: "auto",
+export const vanilla = themeToVars(theme)
 
-  fontFamily: `Rubik, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, sans-serif`,
-  fontFamilyMonospace: `ui-monospace, "JetBrains Mono", "Cascadia Mono", SFMono-Regular, "Segoe UI Mono", "Roboto Mono", Liberation Mono, Courier New, "Ubuntu Mono",  Menlo, Monaco, Consolas, monospace`,
-});
-
-// CSS variables object, can be access in *.css.ts files
-export const vanilla = themeToVars(theme);
+export function useThemed({ dark, light }: { light: string; dark: string }) {
+  return useMantineColorScheme().colorScheme == 'dark' ? dark : light
+}

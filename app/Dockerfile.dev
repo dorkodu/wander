@@ -1,0 +1,15 @@
+FROM node:20-alpine AS base
+RUN corepack enable && pnpm config set --global store-dir /root/.local/share/pnpm/store/v3
+
+RUN mkdir -p /web && mkdir -p /api
+
+COPY ./web/pnpm-lock.yaml /web
+COPY ./api/pnpm-lock.yaml /api
+
+RUN cd /web && pnpm fetch && cd /api && pnpm fetch
+COPY ./web /web
+COPY ./api /api
+RUN cd /web && pnpm install --offline && cd /api && pnpm install --offline
+
+WORKDIR /web
+CMD [ "pnpm", "run", "dev" ]
